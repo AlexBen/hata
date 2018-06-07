@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="infrastructure" />
+        <module name="integration" />
+        <module name="onlinerdataprovider" />
+        <module name="remotedataprovider" />
+        <module name="subscription" />
+        <module name="subscriptionfacade" />
+        <module name="telegram" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hata" target="1.8" />
+      <module name="infrastructure" target="1.8" />
+      <module name="integration" target="1.8" />
+      <module name="onlinerdataprovider" target="1.8" />
+      <module name="remotedataprovider" target="1.8" />
+      <module name="subscription" target="1.8" />
+      <module name="subscriptionfacade" target="1.8" />
+      <module name="telegram" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

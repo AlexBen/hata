@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/infrastructure" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/integration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/onliner-data-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remote-data-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/subscription" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/subscription-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/telegram" charset="UTF-8" />
+  </component>
+</project>
