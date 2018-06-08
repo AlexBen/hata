@@ -1,7 +1,7 @@
 package com.benderski.hata.onliner.model;
 
 
-import com.benderski.hata.remotedataprovider.Apartment;
+import com.benderski.hata.infrastructure.Apartment;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;

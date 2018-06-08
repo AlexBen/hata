@@ -2,6 +2,8 @@ package com.benderski.hata.onliner;
 
 import com.benderski.hata.infrastructure.TaskScheduler;
 import com.benderski.hata.infrastructure.Watcher;
+import com.benderski.hata.infrastructure.Apartment;
+import io.reactivex.Observer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,26 +11,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 @Service
-public class OnlinerWatcher implements Watcher {
+public class OnlinerWatcher implements Watcher<Apartment> {
     private static Logger LOGGER = Logger.getLogger(OnlinerWatcher.class.getName());
 
     static private long executionPeriod = 5;
     static private TimeUnit timeUnit = TimeUnit.MINUTES;
 
-    private TaskScheduler checker;
-
     @Autowired
-    private OnlinerCheckUpdateTask task;
+    OnlinerRestClient restClient;
 
 
-    public void start() {
+    @Override
+    public TaskScheduler scheduleTaskWithObserver(Observer<Apartment> observer) {
         LOGGER.info("Start watching Onliner");
-        checker = new TaskScheduler();
-        checker.scheduleRepeatableTask(task, executionPeriod, timeUnit);
+        TaskScheduler scheduler = new TaskScheduler();
+        OnlinerCheckUpdateTask task = new OnlinerCheckUpdateTask(restClient, observer);
+        scheduler.scheduleRepeatableTask(task, executionPeriod, timeUnit);
+        return scheduler;
     }
-
-    public void stop() {
-        checker.stop();
-    }
-
 }

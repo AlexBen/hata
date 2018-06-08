@@ -9,7 +9,7 @@
         <module name="infrastructure" />
         <module name="integration" />
         <module name="onlinerdataprovider" />
-        <module name="remotedataprovider" />
+        <module name="reactivetest" />
         <module name="subscription" />
         <module name="subscriptionfacade" />
         <module name="telegram" />
@@ -20,6 +20,7 @@
       <module name="infrastructure" target="1.8" />
       <module name="integration" target="1.8" />
       <module name="onlinerdataprovider" target="1.8" />
+      <module name="reactivetest" target="1.8" />
       <module name="remotedataprovider" target="1.8" />
       <module name="subscription" target="1.8" />
       <module name="subscriptionfacade" target="1.8" />

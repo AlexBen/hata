@@ -1,7 +1,7 @@
 package com.benderski.hata.onliner;
 
-import com.benderski.hata.remotedataprovider.ApartmentsStorage;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.benderski.hata.infrastructure.Apartment;
+import io.reactivex.Observer;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -13,17 +13,20 @@ public class OnlinerCheckUpdateTask implements Runnable {
 
     private static int counter = 0;
 
-    @Autowired
     private OnlinerRestClient restClient;
-    @Autowired
-    private ApartmentsStorage apartmentsStorage;
+    private Observer<Apartment> observer;
+
+    public OnlinerCheckUpdateTask(OnlinerRestClient restClient, Observer<Apartment> observer) {
+        this.restClient = restClient;
+        this.observer = observer;
+    }
 
     @Override
     public void run() {
         try {
             LOGGER.info(OnlinerCheckUpdateTask.class.getName() + " task executed, #" + ++counter);
             OnlinerResponse onlinerResponse = restClient.requestList(Collections.emptyMap());
-            apartmentsStorage.addNewPortion(onlinerResponse.getApartments());
+            onlinerResponse.getApartments().forEach(observer::onNext);
         } catch (Exception e) {
             LOGGER.severe(e.getLocalizedMessage());
         }

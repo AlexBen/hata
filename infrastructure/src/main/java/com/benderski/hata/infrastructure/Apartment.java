@@ -1,4 +1,4 @@
-package com.benderski.hata.remotedataprovider;
+package com.benderski.hata.infrastructure;
 
 import java.util.Date;
 

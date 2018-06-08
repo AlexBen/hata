@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d420349e-0b82-49e9-9826-985cf8aff2d3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactive-test/src/main/java/com/benderski/reactivetest/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/hotswap_agent.xml" beforeDir="false" />
@@ -64,7 +66,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_0_2_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_0_2_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_0_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_0_2_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_0_2_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_0_2_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_0_2_RELEASE.xml" beforeDir="false" />
@@ -87,23 +88,24 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hata.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hata.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/infrastructure.iml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/infrastructure.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/TaskScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/TaskScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/test/java/com/benderski/hata/infrastructure/TaskSchedulerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/test/java/com/benderski/hata/infrastructure/TaskSchedulerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/target/classes/com/benderski/hata/infrastructure/Initializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/target/classes/com/benderski/hata/infrastructure/TaskScheduler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/target/classes/com/benderski/hata/infrastructure/Watcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Watcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Watcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/target/test-classes/com/benderski/hata/infrastructure/TaskSchedulerTest$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/target/test-classes/com/benderski/hata/infrastructure/TaskSchedulerTest$Counter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/target/test-classes/com/benderski/hata/infrastructure/TaskSchedulerTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/integration/integration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/integration/integration.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/integration/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/integration/target/classes/com/benderski/hata/integration/NewApartmentListener.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/integration/target/classes/com/benderski/hata/integration/runner/Application.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/integration/target/classes/com/benderski/hata/integration/runner/MyApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/onlinerdataprovider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/onlinerdataprovider.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onliner-data-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerCheckUpdateTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerCheckUpdateTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerRestClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/model/OnlinerApartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/model/OnlinerApartment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/target/classes/com/benderski/hata/onliner/OnlinerCheckUpdateTask.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/target/classes/com/benderski/hata/onliner/OnlinerResponse.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/target/classes/com/benderski/hata/onliner/OnlinerRestClient.class" beforeDir="false" />
@@ -114,10 +116,15 @@
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/target/classes/com/benderski/hata/onliner/model/Page.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/onliner-data-provider/target/classes/com/benderski/hata/onliner/model/Price.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-data-provider/remotedataprovider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/remote-data-provider/remotedataprovider.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/ApartmentsStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/ApartmentsStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-test/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/remotedataprovider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-test/reactivetest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/Apartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Apartment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/ApartmentsStorage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/RemoteDataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/RemoteDataResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/events/NewApartmentEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote-data-provider/src/test/java/com/benderski/hata/remotedataprovider/ApartmentsStorageTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/remote-data-provider/target/classes/com/benderski/hata/remotedataprovider/Apartment.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/remote-data-provider/target/classes/com/benderski/hata/remotedataprovider/ApartmentsStorage.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/remote-data-provider/target/classes/com/benderski/hata/remotedataprovider/NewInStorageWatcher.class" beforeDir="false" />
@@ -127,13 +134,17 @@
       <change beforePath="$PROJECT_DIR$/remote-data-provider/target/test-classes/com/benderski/hata/remotedataprovider/ApartmentsStorageTest$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/remote-data-provider/target/test-classes/com/benderski/hata/remotedataprovider/ApartmentsStorageTest$ApartmentImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/remote-data-provider/target/test-classes/com/benderski/hata/remotedataprovider/ApartmentsStorageTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/SubscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/SubscriptionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscription-facade/subscriptionfacade.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-facade/subscriptionfacade.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscription-facade/target/classes/com/benderski/hata/subscription/Subscription.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/subscription-facade/target/classes/com/benderski/hata/subscription/SubscriptionNotificator.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/subscription-facade/target/classes/com/benderski/hata/subscription/SubscriptionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/subscription/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscription/subscription.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subscription/subscription.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscription/target/classes/com/benderski/hata/subscription/ApartmentSubscription.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/onlinerResponse.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription/target/classes/com/benderski/hata/subscription/SubscriptionStorage.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram/target/classes/com/benderski/hata/telegram/BotInitializer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram/target/classes/com/benderski/hata/telegram/SimpleSubscriptionBot.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/telegram/target/classes/com/benderski/hata/telegram/SubscriptionChatService.class" beforeDir="false" />
@@ -148,6 +159,7 @@
     <ignored path="$PROJECT_DIR$/subscription/target/" />
     <ignored path="$PROJECT_DIR$/integration/target/" />
     <ignored path="$PROJECT_DIR$/subscription-facade/target/" />
+    <ignored path="$PROJECT_DIR$/reactive-test/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,79 +169,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java">
+      <file leaf-file-name="Observable.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/Observable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="731">
+              <caret line="7623" column="35" selection-start-line="7623" selection-start-column="35" selection-end-line="7623" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#420674#420675#0" expanded="true" />
+                <element signature="e#420754#420755#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PublishNewApartmentsTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationEventPublisher.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/ApplicationEventPublisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-              <folding>
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1535#1536#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractApplicationContext.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5100">
-              <caret line="399" selection-start-line="399" selection-end-line="399" />
-              <folding>
-                <element signature="e#13963#13964#0" expanded="true" />
-                <element signature="e#13995#13996#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleApplicationEventMulticaster.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractApplicationEventMulticaster.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/AbstractApplicationEventMulticaster.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2567">
-              <caret line="187" selection-start-line="187" selection-end-line="187" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -237,8 +185,8 @@
       <file leaf-file-name="SubscriptionStorage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+            <state relative-caret-position="340">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -246,47 +194,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Observable.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/Observable.java">
+      <file leaf-file-name="SimpleSubscriptionBot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SimpleSubscriptionBot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192831">
-              <caret line="11433" column="51" selection-start-line="11433" selection-start-column="51" selection-end-line="11433" selection-end-column="51" />
+            <state relative-caret-position="85">
+              <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Subject.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/Subject.java">
+      <file leaf-file-name="Function.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/Function.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="207">
+              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnicastSubject.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/UnicastSubject.java">
+      <file leaf-file-name="BinaryOperator.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/BinaryOperator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+            <state relative-caret-position="156">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObservableSkip.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/internal/operators/observable/ObservableSkip.java">
+      <file leaf-file-name="BiPredicate.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/BiPredicate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+            <state relative-caret-position="17">
+              <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractObservableWithUpstream.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/internal/operators/observable/AbstractObservableWithUpstream.java">
+      <file leaf-file-name="BooleanSupplier.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/BooleanSupplier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+            <state relative-caret-position="306">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Apartment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Apartment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubscriptionService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/SubscriptionService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -294,8 +260,47 @@
       <file leaf-file-name="OnlinerCheckUpdateTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerCheckUpdateTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+            <state relative-caret-position="119">
+              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnlinerRestClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerRestClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="510" selection-start-line="10" selection-start-column="510" selection-end-line="10" selection-end-column="510" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestTemplate.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/5.0.6.RELEASE/spring-web-5.0.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="175" column="23" lean-forward="true" selection-start-line="175" selection-start-column="23" selection-end-line="175" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UriTemplateHandler.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/5.0.6.RELEASE/spring-web-5.0.6.RELEASE.jar!/org/springframework/web/util/UriTemplateHandler.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnlinerWatcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -303,60 +308,69 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="17">
+              <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewApartmentEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/events/NewApartmentEvent.java">
+      <file leaf-file-name="SubscriptionChatService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SubscriptionChatService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="289">
+              <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#271#272#0" expanded="true" />
+                <element signature="e#1064#1065#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
+                <element signature="e#1375#1376#0" expanded="true" />
+                <element signature="e#1413#1414#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewApartmentListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java">
+      <file leaf-file-name="AppConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#655#656#0" expanded="true" />
+                <element signature="e#710#711#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventListener.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/EventListener.java">
+      <file leaf-file-name="ReplaySubject.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/ReplaySubject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+            <state relative-caret-position="170">
+              <caret line="303" column="92" selection-start-line="303" selection-start-column="92" selection-end-line="303" selection-end-column="92" />
+              <folding>
+                <element signature="e#8721#8722#0" expanded="true" />
+                <element signature="e#8798#8799#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationListener.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/ApplicationListener.java">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewInStorageWatcher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+            <state relative-caret-position="408">
+              <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -381,6 +395,7 @@
       <find>${parent.version}</find>
       <find>subscription-facade</find>
       <find>retrievalMutex</find>
+      <find>apartmentStorageObservable</find>
     </findStrings>
     <replaceStrings>
       <replace>${project.parent.version}</replace>
@@ -395,13 +410,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/benderski/hata/integration/telegram/BotInitializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/benderski/hata/service/SubscriptionStorage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/benderski/hata/integration/telegram/SubscriptionWatcher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/benderski/hata/integration/telegram/SendUpdateToSubscriptionTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/benderski/hata/integration/onliner/OnlinerRestClient.java" />
-        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/Apartment.java" />
-        <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/model/OnlinerApartment.java" />
         <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerResponse.java" />
         <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/RemoteDataResponse.java" />
         <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/onliner/Watcher.java" />
@@ -416,36 +424,43 @@
         <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/Subscriber.java" />
         <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Subscription.java" />
         <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/SubscriptionService.java" />
-        <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java" />
         <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionWatcher.java" />
         <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewInStorageWatcher.java" />
         <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/ApplicationRunner.java" />
-        <option value="$PROJECT_DIR$/onliner-data-provider/pom.xml" />
-        <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Watcher.java" />
         <option value="$PROJECT_DIR$/infrastructure/src/test/java/com/benderski/hata/infrastructure/TaskSchedulerTest.java" />
         <option value="$PROJECT_DIR$/remote-data-provider/src/test/java/com/benderski/hata/remotedataprovider/ApartmentsStorageTest.java" />
         <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscribtion.java" />
-        <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscription.java" />
         <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionNotificator.java" />
         <option value="$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SubscriptionChatService.java" />
-        <option value="$PROJECT_DIR$/subscription/pom.xml" />
         <option value="$PROJECT_DIR$/remote-data-provider/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/benderski/hata/Application.java" />
         <option value="$PROJECT_DIR$/telegram/pom.xml" />
         <option value="$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SimpleSubscriptionBot.java" />
         <option value="$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/BotInitializer.java" />
-        <option value="$PROJECT_DIR$/integration/pom.xml" />
-        <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java" />
         <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java" />
         <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/TaskScheduler.java" />
-        <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java" />
-        <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerCheckUpdateTask.java" />
-        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java" />
-        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/ApartmentsStorage.java" />
-        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java" />
         <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/ApartmentsStorage.java" />
+        <option value="$PROJECT_DIR$/reactive-test/pom.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/reactive-test/src/main/java/com/benderski/reactivetest/Application.java" />
+        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcherFactory.java" />
+        <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Watcher.java" />
+        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java" />
+        <option value="$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java" />
+        <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerCheckUpdateTask.java" />
+        <option value="$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/RemoteDataResponse.java" />
+        <option value="$PROJECT_DIR$/onliner-data-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/integration/pom.xml" />
+        <option value="$PROJECT_DIR$/subscription/pom.xml" />
+        <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscription.java" />
+        <option value="$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/SubscriptionService.java" />
+        <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java" />
+        <option value="$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/AppConfig.java" />
+        <option value="$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java" />
+        <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java" />
+        <option value="$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerRestClient.java" />
       </list>
     </option>
   </component>
@@ -486,12 +501,226 @@
               <item name="hata" type="b2602c69:ProjectViewProjectNode" />
               <item name="hata" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="infrastructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="onliner-data-provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="onliner-data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="onliner-data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="onliner-data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="onliner-data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="onliner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="subscription" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="subscription" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="subscription" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="subscription" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="subscription" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="subscription" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hata" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (1) &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (1) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (1) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (1) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (1) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="function" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -512,8 +741,8 @@
       <recent name="com.benderski.hata.telegram" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.benderski.hata.remotedataprovider" />
       <recent name="com.benderski.hata.infrastructure" />
+      <recent name="com.benderski.hata.remotedataprovider" />
       <recent name="com.benderski.hata.telegram" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -540,6 +769,17 @@
   <component name="RunManager" selected="Application.Application">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.benderski.reactivetest.Application" />
+      <module name="reactivetest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benderski.reactivetest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.benderski.hata.integration.runner.Application" />
@@ -618,29 +858,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TaskSchedulerTest.startCheckForUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hata" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.benderski.hata.telegram.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.benderski.hata.infrastructure" />
-      <option name="MAIN_CLASS_NAME" value="com.benderski.hata.infrastructure.TaskSchedulerTest" />
-      <option name="METHOD_NAME" value="startCheckForUpdate" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -695,17 +912,17 @@
     <list>
       <item itemvalue="Application.Application" />
       <item itemvalue="JUnit.ApartmentsStorageTest" />
-      <item itemvalue="JUnit.TaskSchedulerTest.startCheckForUpdate" />
       <item itemvalue="JUnit.TaskSchedulerTest" />
       <item itemvalue="JUnit.All in hata" />
+      <item itemvalue="Application.Application (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Application (1)" />
         <item itemvalue="JUnit.All in hata" />
         <item itemvalue="JUnit.ApartmentsStorageTest" />
         <item itemvalue="JUnit.TaskSchedulerTest" />
-        <item itemvalue="JUnit.TaskSchedulerTest.startCheckForUpdate" />
       </list>
     </recent_temporary>
   </component>
@@ -720,6 +937,14 @@
       <option name="presentableId" value="Default" />
       <updated>1528132188881</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added gitignore">
+      <created>1528445140847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528445140847</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -760,17 +985,20 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32911393" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.3296875" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34542587" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3449367" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32911393" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18125" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18125" />
+      <window_info anchor="right" id="Module Dependencies" order="4" weight="0.3296875" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -780,12 +1008,9 @@
       <window_info anchor="bottom" id="Dependency Viewer" order="8" weight="0.39978904" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Module Dependencies" order="4" weight="0.3296875" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32911393" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
@@ -794,13 +1019,12 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34542587" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18125" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Module Dependencies" order="8" weight="0.3296875" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32911393" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -810,12 +1034,13 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32911393" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.3296875" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18125" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -847,6 +1072,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added gitignore" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -858,7 +1087,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/remote-data-provider/src/test/java/com/benderski/hata/remotedataprovider/ApartmentsStorageTest.java</url>
-          <line>20</line>
+          <line>22</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -868,35 +1097,11 @@
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java</url>
-          <line>19</line>
-          <properties />
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java</url>
-          <line>399</line>
-          <properties />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/AbstractApplicationEventMulticaster.java</url>
-          <line>187</line>
-          <properties />
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="64" />
+      <option name="time" value="71" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -914,283 +1119,35 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.m2/repository/com/google/inject/guice/4.1.0/guice-4.1.0.jar!/com/google/inject/internal/InjectorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="603" column="36" lean-forward="true" selection-start-line="603" selection-start-column="36" selection-end-line="603" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots/3.6.1/telegrambots-3.6.1.jar!/org/telegram/telegrambots/updatesreceivers/DefaultBotSession.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="239" column="6" selection-start-line="239" selection-start-column="6" selection-end-line="239" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots-meta/3.6.1/telegrambots-meta-3.6.1.jar!/org/telegram/telegrambots/ApiContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots/3.6.1/telegrambots-3.6.1-sources.jar!/org/telegram/telegrambots/ApiContextInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots-meta/3.6.1/telegrambots-meta-3.6.1.jar!/org/telegram/telegrambots/generics/LongPollingBot.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots-meta/3.6.1/telegrambots-meta-3.6.1.jar!/org/telegram/telegrambots/generics/BotSession.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots-meta/3.6.1/telegrambots-meta-3.6.1.jar!/org/telegram/telegrambots/TelegramBotsApi.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="100" column="25" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/boot/spring-boot/2.0.2.RELEASE/spring-boot-2.0.2.RELEASE-sources.jar!/org/springframework/boot/SpringApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12274">
-          <caret line="799" selection-start-line="799" selection-end-line="799" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerRestClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/integration/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/BotInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SubscriptionChatService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots/3.6.1/telegrambots-3.6.1-sources.jar!/org/telegram/telegrambots/updatesreceivers/DefaultBotSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3757">
-          <caret line="259" column="67" selection-start-line="259" selection-start-column="67" selection-end-line="259" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SimpleSubscriptionBot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/telegram/telegrambots-meta/3.6.1/telegrambots-meta-3.6.1.jar!/org/telegram/telegrambots/api/methods/updates/GetUpdates.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Watcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/concurrent/Callable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscription.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/Apartment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE.jar!/org/springframework/stereotype/Component.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/stereotype/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/stereotype/Repository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/concurrent/ScheduledExecutorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="153" column="65" selection-start-line="153" selection-start-column="65" selection-end-line="153" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/TaskScheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        <state relative-caret-position="255">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/ApartmentsStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/ApplicationListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/ApplicationEventPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        <state relative-caret-position="153">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
           <folding>
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
+            <element signature="e#1870#1871#0" expanded="true" />
+            <element signature="e#1910#1911#0" expanded="true" />
+            <element signature="e#1962#1963#0" expanded="true" />
+            <element signature="e#1999#2000#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/NewInStorageWatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/events/NewApartmentEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="239">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1199,102 +1156,385 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/remote-data-provider/src/main/java/com/benderski/hata/remotedataprovider/PublishNewApartmentsTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="255">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java">
+    <entry file="file://$PROJECT_DIR$/reactive-test/src/main/java/com/benderski/reactivetest/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5100">
-          <caret line="399" selection-start-line="399" selection-end-line="399" />
-          <folding>
-            <element signature="e#13963#13964#0" expanded="true" />
-            <element signature="e#13995#13996#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-798" />
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/event/AbstractApplicationEventMulticaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="187" selection-start-line="187" selection-end-line="187" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/infrastructure/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13.jar!/io/reactivex/Observable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="200" column="22" selection-start-line="200" selection-start-column="22" selection-end-line="200" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java">
+    <entry file="file://$PROJECT_DIR$/onliner-data-provider/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/integration/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telegram/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/Scope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/Bean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2891">
+          <caret line="244" column="75" selection-start-line="244" selection-start-column="75" selection-end-line="244" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/stereotype/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotationConfigApplicationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/NewApartmentListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/internal/operators/observable/AbstractObservableWithUpstream.java">
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-beans/5.0.6.RELEASE/spring-beans-5.0.6.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/Qualifier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        <state relative-caret-position="340">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/internal/operators/observable/ObservableSkip.java">
+    <entry file="file://$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/SubscriptionNotificator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/Observable.java">
+    <entry file="file://$PROJECT_DIR$/subscription/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192831">
-          <caret line="11433" column="51" selection-start-line="11433" selection-start-column="51" selection-end-line="11433" selection-end-column="51" />
+        <state relative-caret-position="357">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/disposables/Disposable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/Subscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/observers/DisposableObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+          <folding>
+            <element signature="e#3221#3222#0" expanded="true" />
+            <element signature="e#3264#3265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/PublishSubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="97" column="48" lean-forward="true" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
+          <folding>
+            <element signature="e#5928#5929#0" expanded="true" />
+            <element signature="e#5974#5975#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Watcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/Subject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="177">
           <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/UnicastSubject.java">
+    <entry file="file://$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/RemoteDataResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/ApartmentSubscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1186#1187#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/internal/schedulers/SingleScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/internal/schedulers/ImmediateThinScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/Scheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/subjects/ReplaySubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="303" column="92" selection-start-line="303" selection-start-column="92" selection-end-line="303" selection-end-column="92" />
+          <folding>
+            <element signature="e#8721#8722#0" expanded="true" />
+            <element signature="e#8798#8799#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#710#711#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/MyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1064#1065#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subscription-facade/src/main/java/com/benderski/hata/subscription/SubscriptionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrastructure/src/main/java/com/benderski/hata/infrastructure/Apartment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/BooleanSupplier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/BiPredicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/BinaryOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/bin/jdk1.8.0_121/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/reactivex/rxjava2/rxjava/2.1.13/rxjava-2.1.13-sources.jar!/io/reactivex/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="7623" column="35" selection-start-line="7623" selection-start-column="35" selection-end-line="7623" selection-end-column="35" />
+          <folding>
+            <element signature="e#420674#420675#0" expanded="true" />
+            <element signature="e#420754#420755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/integration/src/main/java/com/benderski/hata/integration/runner/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subscription/src/main/java/com/benderski/hata/subscription/SubscriptionStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SimpleSubscriptionBot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telegram/src/main/java/com/benderski/hata/telegram/SubscriptionChatService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/5.0.6.RELEASE/spring-web-5.0.6.RELEASE.jar!/org/springframework/web/util/UriTemplateHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/5.0.6.RELEASE/spring-web-5.0.6.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="175" column="23" lean-forward="true" selection-start-line="175" selection-start-column="23" selection-end-line="175" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerRestClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="510" selection-start-line="10" selection-start-column="510" selection-end-line="10" selection-end-column="510" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerCheckUpdateTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        <state relative-caret-position="119">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/onliner-data-provider/src/main/java/com/benderski/hata/onliner/OnlinerWatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="18" />
+        <state relative-caret-position="459">
+          <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="17">
+          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
         </state>
       </provider>
     </entry>

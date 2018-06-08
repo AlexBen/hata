@@ -3,8 +3,8 @@ package com.benderski.hata.onliner;
 
 import com.benderski.hata.onliner.model.OnlinerApartment;
 import com.benderski.hata.onliner.model.Page;
-import com.benderski.hata.remotedataprovider.Apartment;
-import com.benderski.hata.remotedataprovider.RemoteDataResponse;
+import com.benderski.hata.infrastructure.Apartment;
+import com.benderski.hata.infrastructure.RemoteDataResponse;
 
 import java.util.Collection;
 import java.util.Collections;

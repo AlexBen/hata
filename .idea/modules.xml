@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/infrastructure/infrastructure.iml" filepath="$PROJECT_DIR$/infrastructure/infrastructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/integration/integration.iml" filepath="$PROJECT_DIR$/integration/integration.iml" />
       <module fileurl="file://$PROJECT_DIR$/onliner-data-provider/onlinerdataprovider.iml" filepath="$PROJECT_DIR$/onliner-data-provider/onlinerdataprovider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/remote-data-provider/remotedataprovider.iml" filepath="$PROJECT_DIR$/remote-data-provider/remotedataprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactive-test/reactivetest.iml" filepath="$PROJECT_DIR$/reactive-test/reactivetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/subscription/subscription.iml" filepath="$PROJECT_DIR$/subscription/subscription.iml" />
       <module fileurl="file://$PROJECT_DIR$/subscription-facade/subscriptionfacade.iml" filepath="$PROJECT_DIR$/subscription-facade/subscriptionfacade.iml" />
       <module fileurl="file://$PROJECT_DIR$/telegram/telegram.iml" filepath="$PROJECT_DIR$/telegram/telegram.iml" />

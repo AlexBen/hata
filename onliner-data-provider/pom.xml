@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.benderski.hata</groupId>
-            <artifactId>remote-data-provider</artifactId>
+            <artifactId>infrastructure</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

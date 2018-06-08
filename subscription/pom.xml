@@ -17,6 +17,11 @@
             <artifactId>subscription-facade</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.benderski.hata</groupId>
+            <artifactId>infrastructure</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
 

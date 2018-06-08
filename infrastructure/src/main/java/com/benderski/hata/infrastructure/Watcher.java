@@ -1,6 +1,7 @@
 package com.benderski.hata.infrastructure;
 
-public interface Watcher {
-    void start();
-    void stop();
+import io.reactivex.Observer;
+
+public interface Watcher<T> {
+    TaskScheduler scheduleTaskWithObserver(Observer<T> observer);
 }
