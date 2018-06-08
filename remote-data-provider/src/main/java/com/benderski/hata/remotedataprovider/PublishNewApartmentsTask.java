@@ -3,9 +3,13 @@ package com.benderski.hata.remotedataprovider;
 import com.benderski.hata.remotedataprovider.events.NewApartmentEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
+import java.util.logging.Logger;
 
+@Component
 public class PublishNewApartmentsTask implements Runnable {
+    private static Logger LOGGER = Logger.getLogger(PublishNewApartmentsTask.class.getName());
 
     @Autowired
     private ApplicationEventPublisher publisher;
@@ -15,11 +19,19 @@ public class PublishNewApartmentsTask implements Runnable {
 
     @Override
     public void run() {
+        try {
+            checkForNewApartment();
+        } catch (Exception e) {
+            LOGGER.severe(e.getLocalizedMessage());
+        }
+    }
+
+    private void checkForNewApartment() {
         Apartment apartment = apartmentsStorage.getFirstElement();
         if (apartment == null) {
             return;
         }
-        System.out.println("New in storage! " + apartment.getLink());
+        LOGGER.config("New in storage! " + apartment.getLink());
         publishNewApartmentsFound(apartment);
     }
 

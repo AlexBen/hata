@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Service
 public class ApartmentsStorage {
+    private static Logger LOGGER = Logger.getLogger(ApartmentsStorage.class.getName());
 
     private final Deque<Apartment> storage = new ConcurrentLinkedDeque<>();
     private Date newestElementDate = new Date(0);
@@ -21,7 +23,7 @@ public class ApartmentsStorage {
                     apartments.stream().filter(a -> a.getCreatedAt().after(newestElementDate))
                             .sorted(Comparator.comparing(Apartment::getCreatedAt))
                             .collect(Collectors.toList());
-            newElements.forEach(e -> System.out.println(e.getLink()));
+            newElements.forEach(e -> LOGGER.config("Added to storage: " + e.getLink()));
             storage.addAll(newElements);
             updateNewestElementDate(newElements);
         }

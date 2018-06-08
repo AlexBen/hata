@@ -4,18 +4,18 @@ import com.benderski.hata.remotedataprovider.events.NewApartmentEvent;
 import com.benderski.hata.subscription.SubscriptionNotificator;
 import com.benderski.hata.subscription.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NewApartmentListener implements ApplicationListener<NewApartmentEvent> {
+public class NewApartmentListener {
 
     @Autowired
     private SubscriptionService subscriptionService;
     @Autowired
     private SubscriptionNotificator subscriptionNotificator;
 
-    @Override
+    @EventListener(classes = NewApartmentEvent.class)
     public void onApplicationEvent(NewApartmentEvent newApartmentEvent) {
         System.out.println("Event with new apartment! " + newApartmentEvent.getApartment().getLink());
         subscriptionService.getAll().forEach(subscription ->

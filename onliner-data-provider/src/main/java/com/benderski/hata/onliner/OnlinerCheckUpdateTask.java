@@ -9,8 +9,9 @@ import java.util.logging.Logger;
 
 @Service
 public class OnlinerCheckUpdateTask implements Runnable {
-    private static int counter = 0;
     private static Logger LOGGER = Logger.getLogger(OnlinerCheckUpdateTask.class.getName());
+
+    private static int counter = 0;
 
     @Autowired
     private OnlinerRestClient restClient;
@@ -19,8 +20,12 @@ public class OnlinerCheckUpdateTask implements Runnable {
 
     @Override
     public void run() {
-        LOGGER.info(OnlinerCheckUpdateTask.class.getName() + " task executed, #" + ++counter);
-        OnlinerResponse onlinerResponse = restClient.requestList(Collections.emptyMap());
-        apartmentsStorage.addNewPortion(onlinerResponse.getApartments());
+        try {
+            LOGGER.info(OnlinerCheckUpdateTask.class.getName() + " task executed, #" + ++counter);
+            OnlinerResponse onlinerResponse = restClient.requestList(Collections.emptyMap());
+            apartmentsStorage.addNewPortion(onlinerResponse.getApartments());
+        } catch (Exception e) {
+            LOGGER.severe(e.getLocalizedMessage());
+        }
     }
 }

@@ -15,7 +15,7 @@ class TaskSchedulerTest {
     void startCheckForUpdate() throws InterruptedException {
         final Counter counter = new Counter();
         long period = 1;
-        checker.scheduleRepetableTask(counter::increment, period, TimeUnit.SECONDS);
+        checker.scheduleRepeatableTask(counter::increment, period, TimeUnit.SECONDS);
         int times = 10;
         long term = TimeUnit.SECONDS.toMillis(period) * times - 1; //9 seconds allows to call 10 times
         Thread.sleep(term);

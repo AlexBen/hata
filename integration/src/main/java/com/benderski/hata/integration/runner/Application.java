@@ -17,28 +17,26 @@ public class Application {
 
 
     public static void main(String[] args) {
-        init();
+        ApiContextInitializer.init();
         SpringApplication.run(Application.class, args);
-
     }
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+        SimpleSubscriptionBot bot = ctx.getBean(SimpleSubscriptionBot.class);
+        init(bot);
+        ctx.getBean(MyApplication.class).run();
         return args -> {
-            ctx.getBean(MyApplication.class).run();
 
         };
     }
 
 
-    public static void init() {
-        ApiContextInitializer.init();
+    public static void init(SimpleSubscriptionBot bot) {
         //LOGGER.info("Bot initializing");
         TelegramBotsApi botsApi = new TelegramBotsApi();
-        SimpleSubscriptionBot bot = new SimpleSubscriptionBot();
         try {
             botsApi.registerBot(bot);
-
     //        LOGGER.info("Bot initialized " + bot.getBotUsername());
         } catch (TelegramApiException e) {
             e.printStackTrace();
