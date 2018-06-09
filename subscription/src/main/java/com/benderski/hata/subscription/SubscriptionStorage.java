@@ -1,6 +1,8 @@
 package com.benderski.hata.subscription;
 
 import com.benderski.hata.infrastructure.Apartment;
+import com.benderski.hata.subscription.filter.DateNotBeforeFilterFactory;
+import com.benderski.hata.subscription.filter.PriceFilterFactory;
 import io.reactivex.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,22 +49,11 @@ public class SubscriptionStorage implements SubscriptionService {
     private void subscribe(ApartmentSubscription subscription) {
         observable
                 .distinct(Apartment::getLink)
-                .filter(a -> filteringPredicate(a, subscription))
+                .filter(a -> DateNotBeforeFilterFactory.construct(subscription.getStartingDate()).test(a.lastUpdateAt()))
+                .filter(a -> PriceFilterFactory.construct(280, 420).test(a.getPriceInUSD()))
                 .delay(5, TimeUnit.SECONDS)
                 //more filters here
                 .subscribe(subscription);
-    }
-
-    private boolean filteringPredicate(Apartment apartment, ApartmentSubscription subscription) {
-        return executeAndLog(apartment, subscription);
-    }
-
-    private boolean executeAndLog(Apartment apartment, ApartmentSubscription subscription) {
-        boolean after = apartment.getCreatedAt().after(subscription.getStartingDate());
-        if (!after) {
-            LOGGER.config(apartment.getLink() + " was created before " + subscription.getStartingDate().toString());
-        }
-        return after;
     }
 
     private ApartmentSubscription createSubscriber(Long chatId) {

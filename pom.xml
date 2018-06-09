@@ -9,7 +9,6 @@
     <version>0.1.0-SNAPSHOT</version>
     <modules>
         <module>telegram</module>
-        <module>remote-data-provider</module>
         <module>onliner-data-provider</module>
         <module>infrastructure</module>
         <module>subscription</module>

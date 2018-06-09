@@ -1,6 +1,30 @@
 package com.benderski.hata.onliner.model;
 
 public class Price {
-    public String amount;
-    public String currency;
+    private String amount;
+    private String currency;
+
+    //for deserializing
+    public Price(){};
+
+    public Price(String amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 }
