@@ -10,8 +10,7 @@ public interface Apartment {
 
     @NonNull Date getCreatedAt();
     @NonNull Date lastUpdateAt();
-    @Nullable
-    BigDecimal getPriceInUSD();
-
+    @Nullable BigDecimal getPriceInUSD();
+    @Nullable Integer numberOfRoom();
     @NonNull String getLink();
 }

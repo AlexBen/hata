@@ -17,6 +17,7 @@ public class OnlinerResponse implements RemoteDataResponse {
     public Page page;
     public Integer total;
 
+    @Override
     public Collection<Apartment> getApartments() {
         return apartments.stream().map(Apartment.class::cast).collect(Collectors.toList());
     }

@@ -4,6 +4,7 @@ package com.benderski.hata.onliner.model;
 import com.benderski.hata.infrastructure.Apartment;
 import com.benderski.hata.onliner.PriceConverter;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -39,6 +40,16 @@ public class OnlinerApartment implements Apartment {
     @Override
     public BigDecimal getPriceInUSD() {
         return PriceConverter.getPriceInUSD(price);
+    }
+
+    @Nullable
+    @Override
+    public Integer numberOfRoom() {
+        try {
+            return Integer.parseInt(rent_type.substring(0, 1));
+        } catch (NumberFormatException e) {
+            return null;
+        }
     }
 
     public String getLink() {

@@ -1,8 +1,6 @@
 package com.benderski.hata.subscription;
 
 import com.benderski.hata.infrastructure.Apartment;
-import com.benderski.hata.subscription.filter.DateNotBeforeFilterFactory;
-import com.benderski.hata.subscription.filter.PriceFilterFactory;
 import io.reactivex.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,16 +14,19 @@ import java.util.logging.Logger;
 @Service
 public class SubscriptionStorage implements SubscriptionService {
 
-    Logger LOGGER = Logger.getLogger(ApartmentSubscription.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ApartmentSubscription.class.getName());
 
     @Autowired
     @Qualifier("apartmentStorageObservable")
-    Observable<Apartment> observable;
+    private Observable<Apartment> observable;
 
     @Autowired
-    SubscriptionNotificator notificator;
+    private SubscriptionNotificator notificator;
 
-    Map<Long, ApartmentSubscription> subscriptions = new ConcurrentHashMap<>();
+    @Autowired
+    private FilterProducer filterProducer;
+
+    private final Map<Long, ApartmentSubscription> subscriptions = new ConcurrentHashMap<>();
 
     public boolean subscribe(Long chatId) {
         if (subscriptions.containsKey(chatId)) {
@@ -33,7 +34,6 @@ public class SubscriptionStorage implements SubscriptionService {
         }
         ApartmentSubscription subscription = createSubscriber(chatId);
         subscribe(subscription);
-        LOGGER.info("Subscribing " + chatId);
         subscriptions.put(chatId, subscription);
         return true;
     }
@@ -46,14 +46,20 @@ public class SubscriptionStorage implements SubscriptionService {
         return true;
     }
 
-    private void subscribe(ApartmentSubscription subscription) {
-        observable
-                .distinct(Apartment::getLink)
-                .filter(a -> DateNotBeforeFilterFactory.construct(subscription.getStartingDate()).test(a.lastUpdateAt()))
-                .filter(a -> PriceFilterFactory.construct(280, 420).test(a.getPriceInUSD()))
+    protected void subscribe(ApartmentSubscription subscription) {
+        LOGGER.info("Subscribing " + subscription.getId());
+        applyFilters(observable
+                .distinct(Apartment::getLink), subscription)
                 .delay(5, TimeUnit.SECONDS)
                 //more filters here
                 .subscribe(subscription);
+    }
+
+    private Observable<Apartment> applyFilters(Observable<Apartment> observable, Subscription subscription) {
+        return observable
+                .filter(a -> filterProducer.dateNotBeforeFilter(subscription).test(a.lastUpdateAt()))
+                .filter(a -> filterProducer.priceFilter(subscription).test(a.getPriceInUSD()))
+                .filter(a -> filterProducer.roomNumberFilter(subscription).test(a.numberOfRoom()));
     }
 
     private ApartmentSubscription createSubscriber(Long chatId) {

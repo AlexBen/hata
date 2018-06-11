@@ -57,11 +57,6 @@ public class SimpleSubscriptionBot extends TelegramLongPollingBot implements Sub
     }
 
     @Override
-    public void onUpdatesReceived(List<Update> updates) {
-        updates.forEach(this::onUpdateReceived);
-    }
-
-    @Override
     public String getBotUsername() {
         return botUserName;
     }
