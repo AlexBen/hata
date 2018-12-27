@@ -27,4 +27,15 @@
       <module name="telegram" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="infrastructure" options="-parameters" />
+      <module name="integration" options="-parameters" />
+      <module name="onlinerdataprovider" options="-parameters" />
+      <module name="reactivetest" options="-parameters" />
+      <module name="subscription" options="-parameters" />
+      <module name="subscriptionfacade" options="-parameters" />
+      <module name="telegram" options="-parameters" />
+    </option>
+  </component>
 </project>
