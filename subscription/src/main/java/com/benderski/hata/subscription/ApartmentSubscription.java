@@ -3,6 +3,7 @@ package com.benderski.hata.subscription;
 import com.benderski.hata.infrastructure.Apartment;
 
 import io.reactivex.observers.DisposableObserver;
+import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.function.Consumer;
@@ -10,16 +11,17 @@ import java.util.logging.Logger;
 
 public class ApartmentSubscription extends DisposableObserver<Apartment> implements Subscription {
 
-    Logger LOGGER = Logger.getLogger(ApartmentSubscription.class.getName());
+    private Logger LOGGER = Logger.getLogger(ApartmentSubscription.class.getName());
 
     private final Long chatId;
-    private Date startingDate;
+    private SubscriptionModel model;
     private Consumer<String> notifyFunction;
 
-    ApartmentSubscription(Long id, Consumer<String> notifyFunction) {
+    ApartmentSubscription(Long id, Consumer<String> notifyFunction, @NonNull SubscriptionModel model) {
         this.notifyFunction = notifyFunction;
         this.chatId = id;
-        this.startingDate = new Date();
+        this.model = model;
+        this.model.setSubscriptionCreatedDate(new Date());
     }
 
     @Override
@@ -29,7 +31,27 @@ public class ApartmentSubscription extends DisposableObserver<Apartment> impleme
 
     @Override
     public Date getStartingDate() {
-        return startingDate;
+        return model.getSubscriptionCreatedDate();
+    }
+
+    @Override
+    public Integer getMinPrice() {
+        return model.getMinPrice();
+    }
+
+    @Override
+    public Integer getMaxPrice() {
+        return model.getMaxPrice();
+    }
+
+    @Override
+    public Integer getMinRoomNumber() {
+        return model.getMinNumberOfRooms();
+    }
+
+    @Override
+    public Integer getMaxRoomNumber() {
+        return model.getMaxNumberOfRooms();
     }
 
     @Override

@@ -25,13 +25,13 @@ public class MyApplication implements Runnable {
 
 
     public void run() {
-        TaskScheduler taskScheduler = watcher.scheduleTaskWithObserver(subject);
+        //TaskScheduler taskScheduler = watcher.scheduleTaskWithObserver(subject);
         try {
             Thread.sleep(1000*60*60*10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            taskScheduler.stop();
+            //taskScheduler.stop();
         }
     }
 

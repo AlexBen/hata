@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public class PriceFilterFactory extends MinMaxFilterFactory<BigDecimal>  {
+public class PriceFilterFactory extends MinMaxFilterFactory<Integer>  {
 
 }

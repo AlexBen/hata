@@ -1,40 +1,53 @@
 package com.benderski.hata.telegram;
 
-import com.benderski.hata.subscription.SubscriptionNotificator;
+import com.benderski.hata.subscription.SubscriptionModel;
+import com.benderski.hata.subscription.SubscriptionService;
+import com.benderski.hata.telegram.dialog.DialogFlow;
+import com.benderski.hata.telegram.dialog.DialogStateStorage;
+import com.benderski.hata.telegram.dialog.steps.ChatStep;
+import com.google.common.annotations.VisibleForTesting;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.telegram.abilitybots.api.bot.AbilityBot;
+import org.telegram.abilitybots.api.db.DBContext;
+import org.telegram.abilitybots.api.objects.Ability;
+import org.telegram.abilitybots.api.objects.Flag;
+import org.telegram.abilitybots.api.objects.Locality;
+import org.telegram.abilitybots.api.objects.Privacy;
+import org.telegram.abilitybots.api.sender.MessageSender;
 import org.telegram.telegrambots.api.methods.BotApiMethod;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.api.objects.Message;
-import org.telegram.telegrambots.api.objects.Update;
-import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
-public class SimpleSubscriptionBot extends TelegramLongPollingBot implements SubscriptionNotificator {
+public class SimpleSubscriptionBot extends AbilityBot {
 
     private static Logger LOGGER = Logger.getLogger(SimpleSubscriptionBot.class.getName());
 
     @Autowired
-    SubscriptionChatService subscriptionChatService;
+    @Qualifier("createSubscriptionDialog")
+    private DialogFlow subscriptionDialog;
 
-    String botUserName = "benderfirst_bot";
-    String token = "569635102:AAFjmRF2ugKoGCHzZYuK7U6QD3eFAWJO3w8";
+    @Autowired
+    private DialogStateStorage dialogStateStorage;
+
+    @Autowired
+    private SubscriptionService subscriptionService;
+
+    @Autowired
+    public SimpleSubscriptionBot(BotIdentity botIdentity, DBContext dbContext) {
+        super(botIdentity.getToken(), botIdentity.getBotUserName(), dbContext);
+    }
 
     @Override
-    public void onUpdateReceived(Update update) {
-        if (update.hasMessage()) {
-            SendMessage message = processAndAnswer(update.getMessage());
-            try {
-                execute(message); // Call method to send the message
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }
+    public int creatorId() {
+        return 223189122;
     }
 
     @Override
@@ -43,39 +56,52 @@ public class SimpleSubscriptionBot extends TelegramLongPollingBot implements Sub
         return super.execute(method);
     }
 
-    private SendMessage processAndAnswer(Message message) {
-        if (subscriptionChatService.isStart(message)) {
-            return subscriptionChatService.answerMenu(message);
-        }
-        if (subscriptionChatService.isSubscription(message)) {
-            return subscriptionChatService.processSubscription(message);
-        }
-        if (subscriptionChatService.isUnsubscribe(message)) {
-            return subscriptionChatService.processUnsubscription(message);
-        }
-        return subscriptionChatService.answerDefault(message);
+    public Ability start() {
+        return Ability.builder()
+                .name("start")
+                .info("Создать фильтр")
+                .privacy(Privacy.PUBLIC)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx -> {
+                    int userId = ctx.user().id();
+                    Integer pointer = dialogStateStorage.getOrInitForUserAndDialog(userId, subscriptionDialog.getId());
+                    ChatStep step = subscriptionDialog.getByIndex(pointer);
+                    try {
+                        this.execute(new SendMessage(ctx.chatId(), step.getMessage()));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                })
+                .reply(update -> {
+                    LOGGER.info(update.toString());
+                }, Flag.MESSAGE, Flag.TEXT)
+                .build();
     }
 
-    @Override
-    public String getBotUsername() {
-        return botUserName;
+    public Ability showFilter() {
+        return Ability.builder()
+                .name("showFilter")
+                .info("Просмотреть фильтр")
+                .privacy(Privacy.PUBLIC)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx-> {
+                    int userId = ctx.user().id();
+                    SubscriptionModel profile = subscriptionService.getProfile(userId);
+                    final String message = Optional.ofNullable(profile).map(Objects::toString)
+                    .orElse("Ваш фильтр не настроен. Используйте команду /start");
+                    try {
+                        this.execute(new SendMessage(ctx.chatId(), message));
+                    } catch (TelegramApiException e) {
+                        LOGGER.severe(e.getLocalizedMessage());
+                    }
+
+                }).build();
     }
 
-    @Override
-    public String getBotToken() {
-        return token;
-    }
-
-    @Override
-    public void notify(Long chatId, String text) {
-        try {
-            execute(subscriptionChatService.sendToChat(chatId).setText(text));
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setSubscriptionChatService(SubscriptionChatService subscriptionChatService) {
-        this.subscriptionChatService = subscriptionChatService;
+    @VisibleForTesting
+    void setSender(MessageSender sender) {
+        this.sender = sender;
     }
 }

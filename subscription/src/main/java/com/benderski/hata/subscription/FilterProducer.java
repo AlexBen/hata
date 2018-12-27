@@ -22,7 +22,7 @@ public class FilterProducer {
     @Autowired
     private RoomNumberFilterFactory roomNumberFilterFactory;
 
-    public Predicate<BigDecimal> priceFilter(Subscription subscription) {
+    public Predicate<Integer> priceFilter(Subscription subscription) {
         return priceFilterFactory.construct(subscription.getMinPrice(), subscription.getMaxPrice());
     }
 
@@ -33,6 +33,4 @@ public class FilterProducer {
     public Predicate<Integer> roomNumberFilter(Subscription subscription) {
         return roomNumberFilterFactory.construct(subscription.getMinRoomNumber(), subscription.getMaxRoomNumber());
     }
-
-
 }
