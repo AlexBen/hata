@@ -1,12 +1,12 @@
 package com.benderski.hata.telegram.dialog.steps.subscription;
 
 import com.benderski.hata.telegram.dialog.fields.MaxPriceField;
-import com.benderski.hata.telegram.dialog.steps.InputChatStep;
+import com.benderski.hata.telegram.dialog.steps.IntegerInputChatStep;
 
 import javax.validation.ConstraintViolation;
 import java.util.Set;
 
-public class MaxPriceStep extends InputChatStep<Integer, MaxPriceField> {
+public class MaxPriceStep extends IntegerInputChatStep<MaxPriceField> {
 
     @Override
     public Set<ConstraintViolation<MaxPriceField>> validate(Integer arg) {

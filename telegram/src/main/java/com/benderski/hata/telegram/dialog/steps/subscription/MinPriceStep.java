@@ -1,12 +1,12 @@
 package com.benderski.hata.telegram.dialog.steps.subscription;
 
 import com.benderski.hata.telegram.dialog.fields.MinPriceField;
-import com.benderski.hata.telegram.dialog.steps.InputChatStep;
+import com.benderski.hata.telegram.dialog.steps.IntegerInputChatStep;
 
 import javax.validation.ConstraintViolation;
 import java.util.Set;
 
-public class MinPriceStep extends InputChatStep<Integer, MinPriceField> {
+public class MinPriceStep extends IntegerInputChatStep<MinPriceField> {
 
     @Override
     public Set<ConstraintViolation<MinPriceField>> validate(Integer arg) {

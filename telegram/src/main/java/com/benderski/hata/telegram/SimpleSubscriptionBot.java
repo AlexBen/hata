@@ -1,13 +1,10 @@
 package com.benderski.hata.telegram;
 
-import com.benderski.hata.subscription.SubscriptionModel;
-import com.benderski.hata.subscription.SubscriptionService;
-import com.benderski.hata.telegram.dialog.DialogFlow;
-import com.benderski.hata.telegram.dialog.DialogStateStorage;
-import com.benderski.hata.telegram.dialog.steps.ChatStep;
+import com.benderski.hata.telegram.service.SubscriptionDialogService;
 import com.google.common.annotations.VisibleForTesting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.telegram.abilitybots.api.bot.AbilityBot;
 import org.telegram.abilitybots.api.db.DBContext;
@@ -16,29 +13,18 @@ import org.telegram.abilitybots.api.objects.Flag;
 import org.telegram.abilitybots.api.objects.Locality;
 import org.telegram.abilitybots.api.objects.Privacy;
 import org.telegram.abilitybots.api.sender.MessageSender;
-import org.telegram.telegrambots.api.methods.BotApiMethod;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-import java.io.Serializable;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.logging.Logger;
+import java.util.function.Consumer;
 
 @Service
 public class SimpleSubscriptionBot extends AbilityBot {
 
-    private static Logger LOGGER = Logger.getLogger(SimpleSubscriptionBot.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleSubscriptionBot.class.getName());
 
     @Autowired
-    @Qualifier("createSubscriptionDialog")
-    private DialogFlow subscriptionDialog;
-
-    @Autowired
-    private DialogStateStorage dialogStateStorage;
-
-    @Autowired
-    private SubscriptionService subscriptionService;
+    private SubscriptionDialogService subscriptionDialogService;
 
     @Autowired
     public SimpleSubscriptionBot(BotIdentity botIdentity, DBContext dbContext) {
@@ -50,12 +36,6 @@ public class SimpleSubscriptionBot extends AbilityBot {
         return 223189122;
     }
 
-    @Override
-    public <T extends Serializable, Method extends BotApiMethod<T>> T execute(Method method) throws TelegramApiException {
-        LOGGER.config(method.toString());
-        return super.execute(method);
-    }
-
     public Ability start() {
         return Ability.builder()
                 .name("start")
@@ -63,19 +43,10 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
-                .action(ctx -> {
-                    int userId = ctx.user().id();
-                    Integer pointer = dialogStateStorage.getOrInitForUserAndDialog(userId, subscriptionDialog.getId());
-                    ChatStep step = subscriptionDialog.getByIndex(pointer);
-                    try {
-                        this.execute(new SendMessage(ctx.chatId(), step.getMessage()));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                })
-                .reply(update -> {
-                    LOGGER.info(update.toString());
-                }, Flag.MESSAGE, Flag.TEXT)
+                .action(ctx -> subscriptionDialogService.processSubscriptionStart(ctx, this::sendMessageFunction))
+                .reply(update ->
+                                subscriptionDialogService.performNextStep(update, this::sendMessageFunction),
+                        Flag.MESSAGE, Flag.TEXT, subscriptionDialogService::isUserInSubscriptionFlow)
                 .build();
     }
 
@@ -86,18 +57,16 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
-                .action(ctx-> {
-                    int userId = ctx.user().id();
-                    SubscriptionModel profile = subscriptionService.getProfile(userId);
-                    final String message = Optional.ofNullable(profile).map(Objects::toString)
-                    .orElse("Ваш фильтр не настроен. Используйте команду /start");
-                    try {
-                        this.execute(new SendMessage(ctx.chatId(), message));
-                    } catch (TelegramApiException e) {
-                        LOGGER.severe(e.getLocalizedMessage());
-                    }
+                .action(ctx -> subscriptionDialogService.processShowSubscription(ctx, this::sendMessageFunction))
+                .build();
+    }
 
-                }).build();
+    private void sendMessageFunction(SendMessage message) {
+        try {
+            this.execute(message);
+        } catch (TelegramApiException e) {
+            LOGGER.error(e.getLocalizedMessage(), e);
+        }
     }
 
     @VisibleForTesting

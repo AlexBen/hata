@@ -25,9 +25,6 @@ public class SubscriptionStorage implements SubscriptionService {
     private Observable<Apartment> observable;
 
     @Autowired
-    private SubscriptionNotificator notificator;
-
-    @Autowired
     private FilterProducer filterProducer;
 
     public SubscriptionModel createProfile(Integer userId) {
@@ -68,9 +65,5 @@ public class SubscriptionStorage implements SubscriptionService {
 
     private SubscriptionModel createOrRetrieveProfile(Integer userId) {
         return storageDao.createOrRetrieveSubscription(userId);
-    }
-
-    private ApartmentSubscription createSubscriber(Long chatId) {
-        return new ApartmentSubscription(chatId, text -> notificator.notify(chatId, text), new SubscriptionModel());
     }
 }

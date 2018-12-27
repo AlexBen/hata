@@ -11,6 +11,8 @@ public abstract class InputChatStep<T, B> implements ChatStep {
 
     public abstract Set<ConstraintViolation<B>> validate(T arg);
 
+    public abstract T parse(String text);
+
     protected Validator getValidator() {
         return validator;
     }
