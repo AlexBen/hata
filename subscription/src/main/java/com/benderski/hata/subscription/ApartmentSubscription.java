@@ -21,7 +21,6 @@ public class ApartmentSubscription extends DisposableObserver<Apartment> impleme
         this.notifyFunction = notifyFunction;
         this.chatId = id;
         this.model = model;
-        this.model.setSubscriptionCreatedDate(new Date());
     }
 
     @Override
