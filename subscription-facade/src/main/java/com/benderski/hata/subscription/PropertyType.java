@@ -1,5 +1,7 @@
 package com.benderski.hata.subscription;
 
-public enum PropertyType {
+import java.io.Serializable;
+
+public enum PropertyType implements Serializable {
     FLAT, ROOM, HOUSE
 }

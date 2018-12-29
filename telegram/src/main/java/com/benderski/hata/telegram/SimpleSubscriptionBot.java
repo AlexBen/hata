@@ -1,7 +1,7 @@
 package com.benderski.hata.telegram;
 
+import com.benderski.hata.infrastructure.ShutdownSignal;
 import com.benderski.hata.telegram.service.SubscriptionDialogService;
-import com.google.common.annotations.VisibleForTesting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,23 +12,25 @@ import org.telegram.abilitybots.api.objects.Ability;
 import org.telegram.abilitybots.api.objects.Flag;
 import org.telegram.abilitybots.api.objects.Locality;
 import org.telegram.abilitybots.api.objects.Privacy;
-import org.telegram.abilitybots.api.sender.MessageSender;
-import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.exceptions.TelegramApiException;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.util.function.Consumer;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class SimpleSubscriptionBot extends AbilityBot {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleSubscriptionBot.class.getName());
 
-    @Autowired
     private SubscriptionDialogService subscriptionDialogService;
+    private ShutdownSignal shutdownSignal;
 
-    @Autowired
-    public SimpleSubscriptionBot(BotIdentity botIdentity, DBContext dbContext) {
+    public SimpleSubscriptionBot(@Autowired BotIdentity botIdentity, @Autowired DBContext dbContext,
+                                 @Autowired SubscriptionDialogService subscriptionDialogService,
+                                 @Autowired ShutdownSignal shutdownSignal) {
         super(botIdentity.getToken(), botIdentity.getBotUserName(), dbContext);
+        this.subscriptionDialogService = subscriptionDialogService;
+        this.shutdownSignal = shutdownSignal;
     }
 
     @Override
@@ -45,14 +47,16 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .input(0)
                 .action(ctx -> subscriptionDialogService.processSubscriptionStart(ctx, this::sendMessageFunction))
                 .reply(update ->
-                                subscriptionDialogService.performNextStep(update, this::sendMessageFunction),
-                        Flag.MESSAGE, Flag.TEXT, subscriptionDialogService::isUserInSubscriptionFlow)
+                                subscriptionDialogService.performInputStep(update, this::sendMessageFunction),
+                        Flag.MESSAGE, Flag.TEXT,
+                        u -> subscriptionDialogService.notCommand(u),
+                        u -> subscriptionDialogService.isUserInSubscriptionFlow(u))
                 .build();
     }
 
     public Ability showFilter() {
         return Ability.builder()
-                .name("showFilter")
+                .name("showfilter")
                 .info("Просмотреть фильтр")
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
@@ -61,16 +65,61 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .build();
     }
 
-    private void sendMessageFunction(SendMessage message) {
+    public Ability live() {
+        return Ability.builder()
+                .name("live")
+                .info("Начать получать обновления")
+                .privacy(Privacy.PUBLIC)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx -> subscriptionDialogService.goLive(ctx, this::sendMessageFunction))
+                .post(ctx -> {
+                    sendMessageFunction(new SendMessage(ctx.chatId(),
+                            "Отлично, теперь вы будете получать все новые объявления, прошедшие фильтр"));
+                    subscriptionDialogService.processShowSubscription(ctx, this::sendMessageFunction);
+                })
+                .build();
+    }
+
+    public Ability shutdown() {
+        return Ability.builder()
+                .name("shutdown")
+                .info("Остановить бота")
+                .privacy(Privacy.CREATOR)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx -> shutdownSignal.stop())
+                .post(ctx -> sendMessageFunction(new SendMessage(ctx.chatId(), "Bot is shutting down")))
+                .build();
+    }
+
+    public Ability stopSubscription() {
+        return Ability.builder()
+                .name("stop")
+                .info("Отключить подписку")
+                .privacy(Privacy.PUBLIC)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx -> subscriptionDialogService.stopSubscription(ctx))
+                .post(ctx -> sendMessageFunction(new SendMessage(
+                        ctx.chatId(), "Подписка остановлена. Вы можете возобновить её командой /live")))
+                .build();
+    }
+
+    @Override
+    public void onClosing() {
         try {
-            this.execute(message);
-        } catch (TelegramApiException e) {
-            LOGGER.error(e.getLocalizedMessage(), e);
+            exe.awaitTermination(1, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            exe.shutdown();
         }
     }
 
-    @VisibleForTesting
-    void setSender(MessageSender sender) {
-        this.sender = sender;
+    private void sendMessageFunction(SendMessage message) {
+        try {
+            this.sender.execute(message);
+        } catch (TelegramApiException e) {
+            LOGGER.error(e.getLocalizedMessage(), e);
+        }
     }
 }

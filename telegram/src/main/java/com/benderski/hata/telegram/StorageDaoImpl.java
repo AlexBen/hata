@@ -8,6 +8,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.telegram.abilitybots.api.db.DBContext;
 
+import javax.annotation.PreDestroy;
 import java.util.Map;
 
 @Service
@@ -36,6 +37,24 @@ public class StorageDaoImpl implements StorageDao {
     public SubscriptionModel getProfile(@NonNull Integer userId) {
         Map<Integer, SubscriptionModel> map = dbContext.getMap(SUBSCRIPTION);
         return map.get(userId);
+    }
+
+    @Override
+    public void commit() {
+        dbContext.commit();
+    }
+
+    @Override
+    public SubscriptionModel updateProfile(Integer userId, SubscriptionModel model) {
+        Map<Integer, SubscriptionModel> map = dbContext.getMap(SUBSCRIPTION);
+        map.put(userId, model);
+        //dbContext.commit();
+        return map.get(userId);
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        commit();
     }
 
     public void setDbContext(DBContext dbContext) {

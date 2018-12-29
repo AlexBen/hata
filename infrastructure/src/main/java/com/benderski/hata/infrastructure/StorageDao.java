@@ -7,4 +7,7 @@ import org.springframework.lang.Nullable;
 public interface StorageDao {
     SubscriptionModel createOrRetrieveSubscription(@NonNull Integer userId);
     @Nullable SubscriptionModel getProfile(@NonNull Integer userId);
+    void commit();
+
+    SubscriptionModel updateProfile(Integer userId, SubscriptionModel model);
 }

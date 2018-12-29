@@ -19,6 +19,10 @@ public class DialogStateStorage {
             dialogPointerMap.put(dialog, 0);
             return dialogPointerMap;
         });
+        Integer integer = chatToPointerMap.get(dialog);
+        if (integer < 0) {
+            chatToPointerMap.put(dialog, 0);
+        }
         return chatToPointerMap.get(dialog);
     }
 

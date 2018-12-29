@@ -1,8 +1,10 @@
 package com.benderski.hata.subscription;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
-public class SubscriptionModel {
+public class SubscriptionModel implements Serializable {
 
     private PropertyType propertyType = PropertyType.FLAT;
     private Integer minPrice;
@@ -71,5 +73,33 @@ public class SubscriptionModel {
 
     public void setOwnerOnly(Boolean ownerOnly) {
         this.ownerOnly = ownerOnly;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubscriptionModel that = (SubscriptionModel) o;
+        return propertyType == that.propertyType &&
+                Objects.equals(minPrice, that.minPrice) &&
+                Objects.equals(maxPrice, that.maxPrice) &&
+                Objects.equals(subscriptionCreatedDate, that.subscriptionCreatedDate) &&
+                Objects.equals(subscriptionStartedDate, that.subscriptionStartedDate) &&
+                Objects.equals(minNumberOfRooms, that.minNumberOfRooms) &&
+                Objects.equals(maxNumberOfRooms, that.maxNumberOfRooms) &&
+                Objects.equals(ownerOnly, that.ownerOnly);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(propertyType, minPrice, maxPrice, subscriptionCreatedDate, subscriptionStartedDate, minNumberOfRooms, maxNumberOfRooms, ownerOnly);
+    }
+
+    @Override
+    public String toString() {
+        return "минимальная цена, usd: " + minPrice +
+                "\n максимальная цена, usd: " + maxPrice +
+                "\n минимальное количество комнат: " + minNumberOfRooms +
+                "\n подписка активна: " + (subscriptionStartedDate != null ? "да" : "нет");
     }
 }

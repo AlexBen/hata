@@ -13,24 +13,24 @@ public class ApartmentSubscription extends DisposableObserver<Apartment> impleme
 
     private Logger LOGGER = Logger.getLogger(ApartmentSubscription.class.getName());
 
-    private final Long chatId;
+    private final Integer userId;
     private SubscriptionModel model;
     private Consumer<String> notifyFunction;
 
-    ApartmentSubscription(Long id, Consumer<String> notifyFunction, @NonNull SubscriptionModel model) {
+    ApartmentSubscription(Integer id, @NonNull SubscriptionModel model, Consumer<String> notifyFunction) {
         this.notifyFunction = notifyFunction;
-        this.chatId = id;
+        this.userId = id;
         this.model = model;
     }
 
     @Override
-    public Long getId() {
-        return chatId;
+    public Integer getUserId() {
+        return userId;
     }
 
     @Override
     public Date getStartingDate() {
-        return model.getSubscriptionCreatedDate();
+        return model.getSubscriptionStartedDate();
     }
 
     @Override
@@ -65,6 +65,6 @@ public class ApartmentSubscription extends DisposableObserver<Apartment> impleme
 
     @Override
     public void onComplete() {
-        LOGGER.info("Subscription for " + chatId + " is completed");
+        LOGGER.info("Subscription for " + userId + " is completed");
     }
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public interface Subscription {
 
-    Long getId();
+    Integer getUserId();
     Date getStartingDate();
     Integer getMinPrice();
     Integer getMaxPrice();

@@ -1,16 +1,31 @@
 package com.benderski.hata.telegram.dialog.steps.subscription;
 
+import com.benderski.hata.subscription.SubscriptionModel;
 import com.benderski.hata.telegram.dialog.fields.MaxPriceField;
 import com.benderski.hata.telegram.dialog.steps.IntegerInputChatStep;
 
 import javax.validation.ConstraintViolation;
+import java.util.HashSet;
 import java.util.Set;
 
-public class MaxPriceStep extends IntegerInputChatStep<MaxPriceField> {
+public class MaxPriceStep extends IntegerInputChatStep<MaxPriceField, SubscriptionModel> {
 
     @Override
-    public Set<ConstraintViolation<MaxPriceField>> validate(Integer arg) {
+    protected Set<ConstraintViolation<MaxPriceField>> validate(Integer arg) {
         return getValidator().validate(new MaxPriceField(arg));
+    }
+
+    protected Set<String> postValidate(Integer arg, SubscriptionModel model) {
+        Set<String> set = new HashSet<>();
+        if (arg < model.getMinPrice()) {
+            set.add("Максимальная цена должна быть больше минимальной");
+        }
+        return set;
+    }
+
+    @Override
+    protected void setField(SubscriptionModel model, Integer value) {
+        model.setMaxPrice(value);
     }
 
     @Override
