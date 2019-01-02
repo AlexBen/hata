@@ -42,6 +42,10 @@ public class SubscriptionDialogService {
     public void processSubscriptionStart(MessageContext ctx, Consumer<SendMessage> sendMessage) {
         final Integer userId = ctx.user().getId();
         final Long chatId = ctx.chatId();
+        boolean isAlreadyStarted = isUserInSubscriptionFlow(userId);
+        if (isAlreadyStarted) {
+            sendMessage.accept(new SendMessage(chatId, "Для очистки фильтра используйте команду /clear"));
+        }
         processNext(userId, chatId, sendMessage);
     }
 
@@ -123,7 +127,11 @@ public class SubscriptionDialogService {
     }
 
     public boolean isUserInSubscriptionFlow(Update update) {
-        return dialogStateStorage.hasDialogStarted(getUserId(update), subscriptionDialog.getId());
+        return isUserInSubscriptionFlow(getUserId(update));
+    }
+
+    private boolean isUserInSubscriptionFlow(Integer userId) {
+        return dialogStateStorage.hasDialogStarted(userId, subscriptionDialog.getId());
     }
 
     private boolean validateProfile(SubscriptionModel model) {
