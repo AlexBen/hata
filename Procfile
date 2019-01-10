@@ -1,0 +1,1 @@
+web: java -jar integration/target/bot-app.jar
