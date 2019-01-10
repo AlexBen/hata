@@ -38,13 +38,12 @@ public class SubscriptionDialogService {
     @Autowired
     private SubscriptionService subscriptionService;
 
-
-    public void processSubscriptionStart(MessageContext ctx, Consumer<SendMessage> sendMessage) {
+    public void startFilterCreation(MessageContext ctx, Consumer<SendMessage> sendMessage) {
         final Integer userId = ctx.user().getId();
         final Long chatId = ctx.chatId();
         boolean isAlreadyStarted = isUserInSubscriptionFlow(userId);
         if (isAlreadyStarted) {
-            sendMessage.accept(new SendMessage(chatId, "Для очистки фильтра используйте команду /clear"));
+            sendMessage.accept(new SendMessage(chatId, "Для сброса фильтра используйте команду /reset"));
         }
         processNext(userId, chatId, sendMessage);
     }
@@ -89,9 +88,16 @@ public class SubscriptionDialogService {
         processNext(userId, update.getMessage().getChatId(), sendMessage);
     }
 
-    public void stopSubscription(MessageContext messageContext) {
-        final Integer userId = messageContext.user().getId();
-        subscriptionService.unsubscribe(userId);
+    public void stopSubscription(MessageContext ctx, Consumer<SendMessage> sendMessage) {
+        final Integer userId = ctx.user().getId();
+        boolean unsubscribed = subscriptionService.unsubscribe(userId);
+        if (unsubscribed) {
+            sendMessage.accept(new SendMessage(ctx.chatId(),
+                    "Подписка остановлена. Вы можете активировать её командой /live"));
+        } else {
+            sendMessage.accept(new SendMessage(ctx.chatId(),
+                    "Ваша подписка не активна. Вы можете активировать её командой /live"));
+        }
     }
 
     @Nullable
@@ -109,7 +115,7 @@ public class SubscriptionDialogService {
         int userId = ctx.user().getId();
         SubscriptionModel profile = subscriptionService.getProfile(userId);
         final String message = Optional.ofNullable(profile).map(Objects::toString)
-                .orElse("Ваш фильтр не настроен. Используйте команду /start");
+                .orElse("Ваш фильтр не настроен. Используйте команду /create");
         try {
             sendMessage.accept(new SendMessage(ctx.chatId(), message));
         } catch (Exception e) {
@@ -119,11 +125,23 @@ public class SubscriptionDialogService {
 
     public void goLive(MessageContext ctx, Consumer<SendMessage> sendMessage) {
         int userId = ctx.user().getId();
-        subscriptionService.startSubscription(userId, s -> sendMessage.accept(new SendMessage(ctx.chatId(), s)));
+        boolean subscribed = subscriptionService.startSubscription(userId,
+                s -> sendMessage.accept(new SendMessage(ctx.chatId(), s)));
+        if(subscribed) {
+            sendMessage.accept(new SendMessage(ctx.chatId(),
+                    "Отлично, теперь вы будете получать все новые объявления, прошедшие фильтр"));
+            processShowSubscription(ctx, sendMessage);
+        } else {
+            sendMessage.accept(new SendMessage(ctx.chatId(),
+                    "Ваша подписка уже активна. Чтобы деактивировать, используйте команду /stop"));
+        }
     }
 
-    public boolean notCommand(Update update) {
-        return !update.getMessage().getText().startsWith("/");
+    public void resetFilter(MessageContext ctx, Consumer<SendMessage> sendMessageFunction) {
+        final Integer userId = getUserId(ctx.update());
+        subscriptionService.unsubscribe(userId);
+        subscriptionService.updateProfile(userId, new SubscriptionModel());
+        dialogStateStorage.finishDialog(userId, subscriptionDialog.getId());
     }
 
     public boolean isUserInSubscriptionFlow(Update update) {

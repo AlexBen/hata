@@ -26,6 +26,7 @@ public class OnlinerCheckUpdateTask implements Runnable {
         try {
             LOGGER.info(OnlinerCheckUpdateTask.class.getName() + " task executed, #" + ++counter);
             OnlinerResponse onlinerResponse = restClient.requestList(Collections.emptyMap());
+            LOGGER.info("Number of apartments: " + onlinerResponse.getApartments().size());
             onlinerResponse.getApartments().forEach(observer::onNext);
         } catch (Exception e) {
             LOGGER.severe(e.getLocalizedMessage());

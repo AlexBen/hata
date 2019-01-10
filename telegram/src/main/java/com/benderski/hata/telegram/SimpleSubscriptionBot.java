@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.abilitybots.api.bot.AbilityBot;
 import org.telegram.abilitybots.api.db.DBContext;
-import org.telegram.abilitybots.api.objects.Ability;
-import org.telegram.abilitybots.api.objects.Flag;
-import org.telegram.abilitybots.api.objects.Locality;
-import org.telegram.abilitybots.api.objects.Privacy;
+import org.telegram.abilitybots.api.objects.*;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.concurrent.TimeUnit;
@@ -41,23 +39,49 @@ public class SimpleSubscriptionBot extends AbilityBot {
     public Ability start() {
         return Ability.builder()
                 .name("start")
-                .info("Создать фильтр")
+                .info("Показать инфо")
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
-                .action(ctx -> subscriptionDialogService.processSubscriptionStart(ctx, this::sendMessageFunction))
-                .reply(update ->
-                                subscriptionDialogService.performInputStep(update, this::sendMessageFunction),
+                .action(ctx-> sendText(ctx, "Привет, я бот, который лучше, чем агент по предоплате. " +
+                        "\nЯ проверяю сайты с объявлением о сдаче квартир каждые несколько минут и тут же отправляю их тем, " +
+                        "кто настроил фильтр. Всё просто: чтобы начать, используй команду /create." +
+                        "\nВсе доступные " +
+                        "команды можно просмотреть командой /commands."))
+                .build();
+    }
+
+    public Ability create() {
+        return Ability.builder()
+                .name("create")
+                .info("Создать фильтр объявлений")
+                .privacy(Privacy.PUBLIC)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx -> subscriptionDialogService.startFilterCreation(ctx, this::sendMessageFunction))
+                .reply(update -> subscriptionDialogService.performInputStep(update, this::sendMessageFunction),
                         Flag.MESSAGE, Flag.TEXT,
-                        u -> subscriptionDialogService.notCommand(u),
+                        this::notCommand,
                         u -> subscriptionDialogService.isUserInSubscriptionFlow(u))
+                .build();
+    }
+
+    public Ability reset() {
+        return Ability.builder()
+                .name("reset")
+                .info("Сбросить фильтр. Активная подписка будет остановлена")
+                .privacy(Privacy.PUBLIC)
+                .locality(Locality.ALL)
+                .input(0)
+                .action(ctx -> subscriptionDialogService.resetFilter(ctx, this::sendMessageFunction))
+                .post(ctx-> sendText(ctx, "Фильтр удалён"))
                 .build();
     }
 
     public Ability showFilter() {
         return Ability.builder()
                 .name("showfilter")
-                .info("Просмотреть фильтр")
+                .info("Просмотреть настроенный фильтр")
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
@@ -68,16 +92,11 @@ public class SimpleSubscriptionBot extends AbilityBot {
     public Ability live() {
         return Ability.builder()
                 .name("live")
-                .info("Начать получать обновления")
+                .info("Активировать подписку на обновления")
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
                 .action(ctx -> subscriptionDialogService.goLive(ctx, this::sendMessageFunction))
-                .post(ctx -> {
-                    sendMessageFunction(new SendMessage(ctx.chatId(),
-                            "Отлично, теперь вы будете получать все новые объявления, прошедшие фильтр"));
-                    subscriptionDialogService.processShowSubscription(ctx, this::sendMessageFunction);
-                })
                 .build();
     }
 
@@ -89,20 +108,18 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .locality(Locality.ALL)
                 .input(0)
                 .action(ctx -> shutdownSignal.stop())
-                .post(ctx -> sendMessageFunction(new SendMessage(ctx.chatId(), "Bot is shutting down")))
+                .post(ctx -> sendText(ctx, "Bot is shutting down"))
                 .build();
     }
 
     public Ability stopSubscription() {
         return Ability.builder()
                 .name("stop")
-                .info("Отключить подписку")
+                .info("Отключить подписку на новый объявления")
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
-                .action(ctx -> subscriptionDialogService.stopSubscription(ctx))
-                .post(ctx -> sendMessageFunction(new SendMessage(
-                        ctx.chatId(), "Подписка остановлена. Вы можете возобновить её командой /live")))
+                .action(ctx -> subscriptionDialogService.stopSubscription(ctx, this::sendMessageFunction))
                 .build();
     }
 
@@ -113,6 +130,14 @@ public class SimpleSubscriptionBot extends AbilityBot {
         } catch (InterruptedException e) {
             exe.shutdown();
         }
+    }
+
+    private boolean notCommand(Update update) {
+        return !update.getMessage().getText().startsWith("/");
+    }
+
+    private void sendText(MessageContext ctx, String text) {
+        sendMessageFunction(new SendMessage(ctx.chatId(), text));
     }
 
     private void sendMessageFunction(SendMessage message) {

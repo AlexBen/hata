@@ -1,17 +1,17 @@
 package com.benderski.hata.subscription;
 
 import com.benderski.hata.infrastructure.Apartment;
-
 import io.reactivex.observers.DisposableObserver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.function.Consumer;
-import java.util.logging.Logger;
 
 public class ApartmentSubscription extends DisposableObserver<Apartment> implements Subscription {
 
-    private Logger LOGGER = Logger.getLogger(ApartmentSubscription.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApartmentSubscription.class);
 
     private final Integer userId;
     private SubscriptionModel model;
@@ -60,7 +60,7 @@ public class ApartmentSubscription extends DisposableObserver<Apartment> impleme
 
     @Override
     public void onError(Throwable e) {
-        LOGGER.severe(e.getLocalizedMessage());
+        LOGGER.error(e.getLocalizedMessage(), e);
     }
 
     @Override

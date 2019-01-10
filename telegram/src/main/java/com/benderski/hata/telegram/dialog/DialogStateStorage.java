@@ -34,7 +34,11 @@ public class DialogStateStorage {
     }
 
     public void finishDialog(@NonNull Integer userId, @NonNull String dialog) {
-        userToDialogPointerMap.get(userId).put(dialog, -1);
+        userToDialogPointerMap.computeIfPresent(userId, (integer, stringIntegerMap) -> {
+            Map<String, Integer> dialogPointerMap = new HashMap<>();
+            dialogPointerMap.put(dialog, 0);
+            return dialogPointerMap;
+        });
     }
 
     public int incrementFor(@NonNull Integer userId, @NonNull String dialog) {

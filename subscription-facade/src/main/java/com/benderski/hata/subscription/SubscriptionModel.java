@@ -3,11 +3,15 @@ package com.benderski.hata.subscription;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
 public class SubscriptionModel implements Serializable {
 
     private PropertyType propertyType = PropertyType.FLAT;
+
+    @NotNull
     private Integer minPrice;
+    @NotNull
     private Integer maxPrice;
     private Date subscriptionCreatedDate = new Date();
     private Date subscriptionStartedDate;
@@ -98,8 +102,8 @@ public class SubscriptionModel implements Serializable {
     @Override
     public String toString() {
         return "минимальная цена, usd: " + minPrice +
-                "\n максимальная цена, usd: " + maxPrice +
-                "\n минимальное количество комнат: " + minNumberOfRooms +
-                "\n подписка активна: " + (subscriptionStartedDate != null ? "да" : "нет");
+                "\nмаксимальная цена, usd: " + maxPrice +
+                "\nминимальное количество комнат: " + minNumberOfRooms +
+                "\nподписка активна: " + (subscriptionStartedDate != null ? "да" : "нет");
     }
 }

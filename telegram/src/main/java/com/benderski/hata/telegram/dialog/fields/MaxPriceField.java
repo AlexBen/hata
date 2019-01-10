@@ -4,7 +4,7 @@ import javax.validation.constraints.Min;
 
 public class MaxPriceField implements ModelField<Integer> {
 
-    @Min(value = 50, message = "Ну совсем бесплатно не выйдет.")
+    @Min(value = 50, message = "Ну совсем бесплатно не выйдет. Максимальная цена должна быть больше 50")
     private Integer maxPrice;
 
     public MaxPriceField(Integer maxPrice) {

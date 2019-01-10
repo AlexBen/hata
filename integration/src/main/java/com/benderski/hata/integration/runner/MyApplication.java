@@ -50,7 +50,7 @@ public class MyApplication implements Runnable {
     private Observer<Apartment> subject;
 
     public void run() {
-        //TaskScheduler taskScheduler = watcher.scheduleTaskWithObserver(subject);
+        TaskScheduler taskScheduler = watcher.scheduleTaskWithObserver(subject);
         try {
             init(bot);
             while (!shutdownSignal.isStopped()) {
@@ -62,7 +62,7 @@ public class MyApplication implements Runnable {
             LOGGER.info("Shutting down");
             bot.onClosing();
             try {
-                //taskScheduler.stop();
+                taskScheduler.stop();
                 dbContext.close();
             } catch (IOException e) {
                 LOGGER.error(e.getLocalizedMessage(), e);

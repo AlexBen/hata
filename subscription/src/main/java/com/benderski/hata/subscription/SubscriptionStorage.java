@@ -2,7 +2,6 @@ package com.benderski.hata.subscription;
 
 import com.benderski.hata.infrastructure.Apartment;
 import com.benderski.hata.infrastructure.StorageDao;
-import com.sun.xml.internal.ws.resources.SenderMessages;
 import io.reactivex.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +10,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,15 +52,22 @@ public class SubscriptionStorage implements SubscriptionService {
         return storageDao.getProfile(userId);
     }
 
+    //TODO: check if subscribed
     @Override
     public boolean startSubscription(Integer userId, Consumer<String> sendMessage) {
+        if(subscriptionMap.containsKey(userId)){
+            return false;
+        }
         SubscriptionModel profile = getProfile(userId);
-        profile.setSubscriptionStartedDate(new Date());
-        profile = storageDao.updateProfile(userId, profile);
-        ApartmentSubscription subscription = new ApartmentSubscription(userId, profile, sendMessage);
+        Date threeHoursBefore = Date.from(
+                LocalDateTime.now().minusHours(3)
+                        .toInstant(ZoneOffset.of(ZoneId.systemDefault().getId())));
+        profile.setSubscriptionStartedDate(threeHoursBefore);
+        SubscriptionModel savedProfile = storageDao.updateProfile(userId, profile);
+        ApartmentSubscription subscription = new ApartmentSubscription(userId, savedProfile, sendMessage);
         subscribe(subscription);
         subscriptionMap.put(userId, subscription);
-        return false;
+        return true;
     }
 
     @Override
