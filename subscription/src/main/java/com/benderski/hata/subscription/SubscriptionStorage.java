@@ -59,9 +59,7 @@ public class SubscriptionStorage implements SubscriptionService {
             return false;
         }
         SubscriptionModel profile = getProfile(userId);
-        Date threeHoursBefore = Date.from(
-                LocalDateTime.now().minusHours(3)
-                        .toInstant(ZoneOffset.of(ZoneId.systemDefault().getId())));
+        Date threeHoursBefore = new Date(new Date().getTime() - 3 * 60 * 60 * 1000);
         profile.setSubscriptionStartedDate(threeHoursBefore);
         SubscriptionModel savedProfile = storageDao.updateProfile(userId, profile);
         ApartmentSubscription subscription = new ApartmentSubscription(userId, savedProfile, sendMessage);
