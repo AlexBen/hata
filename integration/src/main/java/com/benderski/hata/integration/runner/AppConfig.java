@@ -25,7 +25,7 @@ public class AppConfig {
     @Bean(name = "dbContext")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public DBContext createDbContext() {
-        return MapDBContext.onlineInstance("D:/Data/bot");
+        return MapDBContext.onlineInstance("/data/bot");
     }
 
     @Bean(name = "createSubscriptionDialog")
