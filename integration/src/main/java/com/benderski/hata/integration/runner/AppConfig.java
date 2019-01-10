@@ -5,6 +5,8 @@ import com.benderski.hata.telegram.dialog.DialogFlow;
 import com.benderski.hata.telegram.dialog.SubscriptionDialogFactory;
 import io.reactivex.subjects.ReplaySubject;
 import io.reactivex.subjects.Subject;
+import org.mapdb.DB;
+import org.mapdb.DBMaker;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +27,14 @@ public class AppConfig {
     @Bean(name = "dbContext")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public DBContext createDbContext() {
-        return MapDBContext.onlineInstance("/data/bot");
+        DB db = DBMaker
+                .tempFileDB()
+                .fileMmapEnableIfSupported()
+                .closeOnJvmShutdown()
+                .transactionEnable()
+                .make();
+
+        return new MapDBContext(db);
     }
 
     @Bean(name = "createSubscriptionDialog")
