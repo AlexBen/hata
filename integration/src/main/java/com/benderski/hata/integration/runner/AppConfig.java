@@ -37,9 +37,15 @@ public class AppConfig {
         return new MapDBContext(db);
     }
 
-    @Bean(name = "createSubscriptionDialog")
+    @Bean(name = "createFlatFilterDialog")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public DialogFlow createSubscriptionDialog() {
-        return SubscriptionDialogFactory.createSubscriptionDialog();
+    public DialogFlow createFlatDialog() {
+        return SubscriptionDialogFactory.createFlatFilterDialog();
+    }
+
+    @Bean(name = "createRoomFilterDialog")
+    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+    public DialogFlow createRoomDialog() {
+        return SubscriptionDialogFactory.createRoomFilterDialog();
     }
 }

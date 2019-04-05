@@ -1,5 +1,6 @@
 package com.benderski.hata.telegram.service;
 
+import com.benderski.hata.subscription.PropertyType;
 import com.benderski.hata.subscription.SubscriptionModel;
 import com.benderski.hata.subscription.SubscriptionService;
 import com.benderski.hata.telegram.dialog.DialogFlow;
@@ -9,6 +10,7 @@ import com.benderski.hata.telegram.dialog.steps.InputChatStep;
 import com.benderski.hata.telegram.dialog.steps.StepResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
@@ -18,19 +20,38 @@ import org.telegram.abilitybots.api.util.AbilityUtils;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
-import java.util.Objects;
-import java.util.Optional;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
-public class SubscriptionDialogService {
+public class SubscriptionDialogService implements InitializingBean {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SubscriptionDialogService.class);
+    private static final Set<String> PROPERTY_TYPES = Stream.of(PropertyType.values())
+            .map(PropertyType::getType).collect(Collectors.toSet());
 
     @Autowired
-    @Qualifier("createSubscriptionDialog")
-    private DialogFlow subscriptionDialog;
+    @Qualifier("createFlatFilterDialog")
+    private DialogFlow flatDialog;
+
+    @Autowired
+    @Qualifier("createRoomFilterDialog")
+    private DialogFlow roomDialog;
+
+    private Map<String, DialogFlow> dialogsMap;
+
+    @Override
+    public void afterPropertiesSet() {
+        dialogsMap = Stream.of(flatDialog, roomDialog)
+                .collect(Collectors.toMap(DialogFlow::getId, Function.identity()));
+    }
 
     @Autowired
     private DialogStateStorage dialogStateStorage;
@@ -45,25 +66,46 @@ public class SubscriptionDialogService {
         if (isAlreadyStarted) {
             sendMessage.accept(new SendMessage(chatId, "Для сброса фильтра используйте команду /reset"));
         }
-        processNext(userId, chatId, sendMessage);
+        sendSelectPropertyType(ctx, sendMessage);
+        //processNext(userId, chatId, sendMessage);
+    }
+
+    private void sendSelectPropertyType(MessageContext ctx, Consumer<SendMessage> sendMessage) {
+        final KeyboardRow row = new KeyboardRow();
+        row.add("Квартира");
+        row.add("Комната");
+        final List<KeyboardRow> rows = Collections.singletonList(row);
+        final ReplyKeyboardMarkup replyKeyboard = new ReplyKeyboardMarkup();
+        replyKeyboard.setKeyboard(rows);
+        final SendMessage message = new SendMessage(ctx.chatId(), "Выберите тип жилья");
+        message.setReplyMarkup(replyKeyboard);
+        sendMessage.accept(message);
+    }
+
+    public void selectFlow(Update update, Object sendMessageFunction) {
+        final String text = update.getMessage().getText();
+        if (PROPERTY_TYPES.contains(text)) {
+            PropertyType type = PropertyType.valueOf(text);
+
+        }
     }
 
     private void processNext(final Integer userId, final Long chatId, Consumer<SendMessage> sendMessage){
-        ChatStep step = getStep(userId, subscriptionDialog.getId());
+        ChatStep step = getStep(userId, getDialog(userId).getId());
         while (step != null) {
             sendMessage.accept(new SendMessage(chatId, step.getMessage()));
             if (step.hasInput()) {
                 //wait for the input
                 return;
             }
-            dialogStateStorage.incrementFor(userId, subscriptionDialog.getId());
-            step = getStep(userId, subscriptionDialog.getId());
+            dialogStateStorage.incrementFor(userId, getDialog(userId).getId());
+            step = getStep(userId, getDialog(userId).getId());
         }
     }
 
     public void performInputStep(Update update, Consumer<SendMessage> sendMessage) {
         final Integer userId = getUserId(update);
-        InputChatStep<?, ?, SubscriptionModel> step = (InputChatStep) getStep(userId, subscriptionDialog.getId());
+        InputChatStep<?, ?, SubscriptionModel> step = (InputChatStep) getStep(userId, getDialog(userId).getId());
         if (step == null) {
             LOGGER.warn("Flow is ended for user " + userId);
             return;
@@ -84,7 +126,7 @@ public class SubscriptionDialogService {
             return;
         }
         subscriptionService.updateProfile(userId, profile);
-        dialogStateStorage.incrementFor(userId, subscriptionDialog.getId());
+        dialogStateStorage.incrementFor(userId, getDialog(userId).getId());
         processNext(userId, update.getMessage().getChatId(), sendMessage);
     }
 
@@ -103,7 +145,7 @@ public class SubscriptionDialogService {
     @Nullable
     private ChatStep getStep(Integer userId, String dialogId) {
         Integer pointer = dialogStateStorage.getOrInitForUserAndDialog(userId, dialogId);
-        ChatStep step = subscriptionDialog.getByIndex(pointer);
+        ChatStep step = getDialog(userId).getByIndex(pointer);
         if (step == null) {
             dialogStateStorage.finishDialog(userId, dialogId);
             subscriptionService.commit();
@@ -141,7 +183,7 @@ public class SubscriptionDialogService {
         final Integer userId = getUserId(ctx.update());
         subscriptionService.unsubscribe(userId);
         subscriptionService.updateProfile(userId, new SubscriptionModel());
-        dialogStateStorage.finishDialog(userId, subscriptionDialog.getId());
+        dialogStateStorage.finishDialog(userId, getDialog(userId).getId());
     }
 
     public boolean isUserInSubscriptionFlow(Update update) {
@@ -149,7 +191,7 @@ public class SubscriptionDialogService {
     }
 
     private boolean isUserInSubscriptionFlow(Integer userId) {
-        return dialogStateStorage.hasDialogStarted(userId, subscriptionDialog.getId());
+        return dialogStateStorage.hasDialogStarted(userId, getDialog(userId).getId());
     }
 
     private boolean validateProfile(SubscriptionModel model) {
@@ -161,8 +203,16 @@ public class SubscriptionDialogService {
         return user.getId();
     }
 
-    public void setSubscriptionDialog(DialogFlow subscriptionDialog) {
-        this.subscriptionDialog = subscriptionDialog;
+    private DialogFlow getDialog(Integer userId) {
+        return dialogsMap.get(dialogStateStorage.getActiveDialog(userId));
+    }
+
+    public void setFlatDialog(DialogFlow flatDialog) {
+        this.flatDialog = flatDialog;
+    }
+
+    public void setRoomDialog(DialogFlow roomDialog) {
+        this.roomDialog = roomDialog;
     }
 
     public void setDialogStateStorage(DialogStateStorage dialogStateStorage) {

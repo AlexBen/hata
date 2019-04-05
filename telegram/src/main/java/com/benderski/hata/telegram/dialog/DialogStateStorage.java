@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
@@ -46,5 +47,13 @@ public class DialogStateStorage {
         pointer += 1;
         userToDialogPointerMap.get(userId).put(dialog, pointer);
         return pointer;
+    }
+
+    public String getActiveDialog(Integer userId) {
+        Map<String, Integer> dialogToStepMap = userToDialogPointerMap.get(userId);
+        return dialogToStepMap.entrySet().stream()
+                .filter(e -> e.getValue() > -1)
+                .map(Map.Entry::getKey)
+                .findFirst().orElse(null);
     }
 }

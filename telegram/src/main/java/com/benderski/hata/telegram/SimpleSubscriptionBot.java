@@ -1,6 +1,7 @@
 package com.benderski.hata.telegram;
 
 import com.benderski.hata.infrastructure.ShutdownSignal;
+import com.benderski.hata.subscription.PropertyType;
 import com.benderski.hata.telegram.service.SubscriptionDialogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +45,7 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .locality(Locality.ALL)
                 .input(0)
                 .action(ctx-> sendText(ctx, "Привет, я бот, который лучше, чем агент по предоплате. " +
-                        "\nЯ проверяю сайты с объявлением о сдаче квартир каждые несколько минут и тут же отправляю их тем, " +
+                        "\nЯ проверяю сайты с объявлением о сдаче комнат и квартир каждые несколько минут и тут же отправляю их тем, " +
                         "кто настроил фильтр. Всё просто: чтобы начать, используй команду /create." +
                         "\nВсе доступные " +
                         "команды можно просмотреть командой /commands."))
@@ -59,6 +60,11 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .locality(Locality.ALL)
                 .input(0)
                 .action(ctx -> subscriptionDialogService.startFilterCreation(ctx, this::sendMessageFunction))
+                .reply(update -> subscriptionDialogService.selectFlow(update, this::sendMessageFunction),
+                        Flag.MESSAGE, Flag.TEXT,
+                        this::notCommand,
+                        u -> !subscriptionDialogService.isUserInSubscriptionFlow(u)
+                )
                 .reply(update -> subscriptionDialogService.performInputStep(update, this::sendMessageFunction),
                         Flag.MESSAGE, Flag.TEXT,
                         this::notCommand,

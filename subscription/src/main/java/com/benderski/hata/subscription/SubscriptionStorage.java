@@ -52,15 +52,14 @@ public class SubscriptionStorage implements SubscriptionService {
         return storageDao.getProfile(userId);
     }
 
-    //TODO: check if subscribed
     @Override
     public boolean startSubscription(Integer userId, Consumer<String> sendMessage) {
         if(subscriptionMap.containsKey(userId)){
             return false;
         }
         SubscriptionModel profile = getProfile(userId);
-        Date threeHoursBefore = new Date(new Date().getTime() - 3 * 60 * 60 * 1000);
-        profile.setSubscriptionStartedDate(threeHoursBefore);
+        Date oneHourBefore = new Date(new Date().getTime() - 1 * 60 * 60 * 1000);
+        profile.setSubscriptionStartedDate(oneHourBefore);
         SubscriptionModel savedProfile = storageDao.updateProfile(userId, profile);
         ApartmentSubscription subscription = new ApartmentSubscription(userId, savedProfile, sendMessage);
         subscribe(subscription);
