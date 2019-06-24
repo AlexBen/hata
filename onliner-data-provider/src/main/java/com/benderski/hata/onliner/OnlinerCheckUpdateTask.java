@@ -5,16 +5,17 @@ import io.reactivex.Observer;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
 public class OnlinerCheckUpdateTask implements Runnable {
     private static Logger LOGGER = Logger.getLogger(OnlinerCheckUpdateTask.class.getName());
 
-    private static int counter = 0;
+    private static AtomicLong counter = new AtomicLong(0);
 
-    private OnlinerRestClient restClient;
-    private Observer<Apartment> observer;
+    private final OnlinerRestClient restClient;
+    private final Observer<Apartment> observer;
 
     public OnlinerCheckUpdateTask(OnlinerRestClient restClient, Observer<Apartment> observer) {
         this.restClient = restClient;
@@ -24,7 +25,7 @@ public class OnlinerCheckUpdateTask implements Runnable {
     @Override
     public void run() {
         try {
-            LOGGER.info(OnlinerCheckUpdateTask.class.getName() + " task executed, #" + ++counter);
+            LOGGER.info(OnlinerCheckUpdateTask.class.getName() + " task executed, #" + counter.incrementAndGet());
             OnlinerResponse onlinerResponse = restClient.requestList(Collections.emptyMap());
             LOGGER.info("Number of apartments: " + onlinerResponse.getApartments().size());
             onlinerResponse.getApartments().forEach(observer::onNext);

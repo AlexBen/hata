@@ -21,8 +21,8 @@ public class SimpleSubscriptionBot extends AbilityBot {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleSubscriptionBot.class.getName());
 
-    private SubscriptionDialogService subscriptionDialogService;
-    private ShutdownSignal shutdownSignal;
+    private final SubscriptionDialogService subscriptionDialogService;
+    private final ShutdownSignal shutdownSignal;
 
     public SimpleSubscriptionBot(@Autowired BotIdentity botIdentity, @Autowired DBContext dbContext,
                                  @Autowired SubscriptionDialogService subscriptionDialogService,
@@ -59,16 +59,23 @@ public class SimpleSubscriptionBot extends AbilityBot {
                 .privacy(Privacy.PUBLIC)
                 .locality(Locality.ALL)
                 .input(0)
-                .action(ctx -> subscriptionDialogService.startFilterCreation(ctx, this::sendMessageFunction))
-                .reply(update -> subscriptionDialogService.selectFlow(update, this::sendMessageFunction),
+                .action(ctx -> {
+                    if (subscriptionDialogService.hasActiveSubscription(ctx.update())) {
+                        sendText(ctx, "У вас уже есть подписка. Чтобы создать новую, удалите существующую");
+                    } else {
+                        subscriptionDialogService.startFilterCreation(ctx, this::sendMessageFunction);
+                    }
+                })
+                .reply(update -> {
+                            if (subscriptionDialogService.isUserInSubscriptionFlow(update)) {
+                                subscriptionDialogService.performInputStep(update, this::sendMessageFunction);
+                            } else {
+                                subscriptionDialogService.selectFlow(update, this::sendMessageFunction);
+                            }
+                        },
                         Flag.MESSAGE, Flag.TEXT,
-                        this::notCommand,
-                        u -> !subscriptionDialogService.isUserInSubscriptionFlow(u)
+                        this::notCommand
                 )
-                .reply(update -> subscriptionDialogService.performInputStep(update, this::sendMessageFunction),
-                        Flag.MESSAGE, Flag.TEXT,
-                        this::notCommand,
-                        u -> subscriptionDialogService.isUserInSubscriptionFlow(u))
                 .build();
     }
 

@@ -15,9 +15,9 @@ public class MaxPriceStep extends IntegerInputChatStep<MaxPriceField, Subscripti
         return getValidator().validate(new MaxPriceField(arg));
     }
 
-    protected Set<String> postValidate(Integer arg, SubscriptionModel model) {
+    protected Set<String> postValidate(Integer maxPrice, SubscriptionModel model) {
         Set<String> set = new HashSet<>();
-        if (arg < model.getMinPrice()) {
+        if (model.getMinPrice() >= maxPrice) {
             set.add("Максимальная цена должна быть больше минимальной");
         }
         return set;

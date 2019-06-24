@@ -13,12 +13,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 
 @Service
@@ -53,15 +52,23 @@ public class SubscriptionStorage implements SubscriptionService {
     }
 
     @Override
+    public boolean hasSubscription(Integer userId) {
+        return subscriptionMap.containsKey(userId);
+    }
+
+    @Override
     public boolean startSubscription(Integer userId, Consumer<String> sendMessage) {
         if(subscriptionMap.containsKey(userId)){
             return false;
         }
         SubscriptionModel profile = getProfile(userId);
+        if (profile == null) {
+            return false;
+        }
         Date oneHourBefore = new Date(new Date().getTime() - 1 * 60 * 60 * 1000);
         profile.setSubscriptionStartedDate(oneHourBefore);
         SubscriptionModel savedProfile = storageDao.updateProfile(userId, profile);
-        ApartmentSubscription subscription = new ApartmentSubscription(userId, savedProfile, sendMessage);
+        final ApartmentSubscription subscription = new ApartmentSubscription(userId, savedProfile, sendMessage);
         subscribe(subscription);
         subscriptionMap.put(userId, subscription);
         return true;
@@ -94,10 +101,26 @@ public class SubscriptionStorage implements SubscriptionService {
 
     private Observable<Apartment> applyFilters(Observable<Apartment> observable, Subscription subscription) {
         return observable
-                .filter(a -> filterProducer.dateNotBeforeFilter(subscription).test(a.lastUpdateAt()))
+                .filter(a -> isNewOrUpdatedAfterWhile(a, subscription))
                 .filter(a -> filterProducer.priceFilter(subscription).test(
                         Optional.ofNullable(a.getPriceInUSD()).map(BigDecimal::intValue).orElse(null)))
                 .filter(a -> filterProducer.roomNumberFilter(subscription).test(a.numberOfRoom()));
+    }
+
+    //tests if apartment newly created OR just updated && created more than a month ago
+    private boolean isNewOrUpdatedAfterWhile(Apartment apartment, Subscription subscription) {
+        Supplier<Boolean> oldUpdated = () ->
+                (filterProducer.dateNotBeforeFilter(subscription).test(apartment.lastUpdateAt()) &&
+                        apartment.getCreatedAt().before(getMonthAgo()));
+
+        return filterProducer.dateNotBeforeFilter(subscription).test(apartment.getCreatedAt())
+                || oldUpdated.get();
+    }
+
+    private static Date getMonthAgo() {
+        Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.MONTH, -1);
+        return instance.getTime();
     }
 
     private SubscriptionModel createOrRetrieveProfile(Integer userId) {

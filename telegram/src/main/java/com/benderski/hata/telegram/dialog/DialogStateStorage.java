@@ -3,57 +3,56 @@ package com.benderski.hata.telegram.dialog;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Supplier;
 
 @Service
 public class DialogStateStorage {
 
-    private Map<Integer, Map<String, Integer>> userToDialogPointerMap = new ConcurrentHashMap<>();
+    private Map<Integer, DialogState> userDialogState = new ConcurrentHashMap<>();
 
     @NonNull
     public Integer getOrInitForUserAndDialog(@NonNull Integer userId, @NonNull String dialog) {
-        Map<String, Integer> chatToPointerMap = userToDialogPointerMap.computeIfAbsent(userId, id -> {
-            Map<String, Integer> dialogPointerMap = new HashMap<>();
-            dialogPointerMap.put(dialog, 0);
-            return dialogPointerMap;
+        DialogState dialogState = userDialogState.compute(userId, (integer, current) -> {
+            if (current == null || !current.getDialogFlowId().equals(dialog)) return new DialogState(dialog);
+            return current;
         });
-        Integer integer = chatToPointerMap.get(dialog);
-        if (integer < 0) {
-            chatToPointerMap.put(dialog, 0);
-        }
-        return chatToPointerMap.get(dialog);
+        return dialogState.getFlowPointer();
     }
 
-    public boolean hasDialogStarted(@NonNull Integer userId, @NonNull String dialog) {
-        if (!userToDialogPointerMap.containsKey(userId)) {
-            return false;
-        }
-        return userToDialogPointerMap.get(userId).get(dialog) > -1;
+    /**
+     * Verifies if dialog for given user exists and it's equals to given
+     *
+     * @param userId         user id
+     * @param dialogSupplier returns dilaogId
+     * @return true if dialog with given name exists for given user
+     */
+    public boolean hasDialogStarted(@NonNull Integer userId, @NonNull Supplier<String> dialogSupplier) {
+        DialogState dialogState = userDialogState.get(userId);
+        return dialogState != null && dialogState.getDialogFlowId().equals(dialogSupplier.get());
     }
 
-    public void finishDialog(@NonNull Integer userId, @NonNull String dialog) {
-        userToDialogPointerMap.computeIfPresent(userId, (integer, stringIntegerMap) -> {
-            Map<String, Integer> dialogPointerMap = new HashMap<>();
-            dialogPointerMap.put(dialog, 0);
-            return dialogPointerMap;
-        });
+    public void finishDialog(@NonNull Integer userId) {
+        userDialogState.remove(userId);
     }
 
-    public int incrementFor(@NonNull Integer userId, @NonNull String dialog) {
-        Integer pointer = userToDialogPointerMap.get(userId).get(dialog);
-        pointer += 1;
-        userToDialogPointerMap.get(userId).put(dialog, pointer);
-        return pointer;
+    /**
+     * Increments pointer in dialog flow for user
+     *
+     * @param userId
+     * @return
+     */
+    public int incrementFor(@NonNull Integer userId) {
+        return Optional.ofNullable(userDialogState.get(userId))
+                .map(DialogState::incrementAndGet)
+                .orElse(-1);
     }
 
     public String getActiveDialog(Integer userId) {
-        Map<String, Integer> dialogToStepMap = userToDialogPointerMap.get(userId);
-        return dialogToStepMap.entrySet().stream()
-                .filter(e -> e.getValue() > -1)
-                .map(Map.Entry::getKey)
-                .findFirst().orElse(null);
+        return Optional.ofNullable(userDialogState.get(userId))
+                .map(DialogState::getDialogFlowId)
+                .orElse(null);
     }
 }

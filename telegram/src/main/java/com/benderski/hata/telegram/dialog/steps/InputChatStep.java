@@ -10,6 +10,11 @@ public abstract class InputChatStep<T, B, M> implements ChatStep {
 
     private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
+    /**
+     * Put your validation to this method
+     * @param arg data to validate
+     * @return set of validation failures
+     */
     protected abstract Set<ConstraintViolation<B>> validate(T arg);
 
     protected Set<String> postValidate(T arg, M model) {
@@ -34,7 +39,7 @@ public abstract class InputChatStep<T, B, M> implements ChatStep {
     }
 
     @Override
-    public boolean hasInput() {
+    public final boolean hasInput() {
         return true;
     }
 }
